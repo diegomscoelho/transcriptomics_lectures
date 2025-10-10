@@ -1,0 +1,153 @@
+---
+title: "Day 1 – Introduction to Transcriptomics"
+subtitle: "Quantitative PCR (qPCR): Principles and Practice"
+format: 
+  revealjs:
+    theme: [default, custom.scss]
+    transition: fade
+    slide-number: true
+    incremental: true
+---
+
+## Welcome & Overview
+
+### What is this lecture about?
+
+- Understand the **foundations of transcriptomics**
+- Learn how to design and interpret RNA-seq experiments
+- Develop critical thinking through **case-based discussion**
+- Apply learned approaches to solve research problems
+
+---
+
+## The Central Dogma of Biology
+
+![](https://cdn.kastatic.org/ka-perseus-images/2b597889d05bc601803a3b4d9ec5ccd5e7b8d3af.png){fig-align="center" width="100%"}
+
+💡 *Transcriptomics focuses on the RNA step - the bridge between genetic code and cellular action*
+
+---
+
+## What is Transcriptomics?
+
+- The **study of the complete set of RNA transcripts** produced by a genome  
+- Helps reveal:
+  - Which genes are active
+  - How gene expression changes in different conditions
+  - Insights into disease mechanisms
+
+🧬 *Think of transcriptomics as taking a snapshot of all active messages inside a cell.*
+
+---
+
+## Defining the Transcriptome
+
+### What is it?
+The **complete set of transcripts** in a cell and their quantity for a specific:
+- Developmental stage
+- Physiological condition
+
+### Why study it?
+Essential for understanding:
+- Functional elements of the genome  
+- Molecular constituents of cells and tissues
+- Development and disease mechanisms
+
+---
+
+## Key Aims of Transcriptomics
+
+1. **Catalogue transcripts**
+   - mRNAs, non-coding RNAs, small RNAs
+
+2. **Determine gene structure**  
+   - Start/end sites, splicing patterns, modifications
+
+3. **Quantify expression changes**
+   - During development and different conditions
+
+---
+
+## Why Transcriptomics Matters
+
+- Understanding **cell identity** and **response to stimuli**
+- Applications in:
+  - Disease diagnosis and progression
+  - Drug discovery
+  - Functional genomics
+
+---
+
+## The Growing Field of Transcriptomics
+
+:::: {.columns}
+
+::: {.column width="40%"}
+### Explosive Growth in the Field
+
+<small>
+- **Exponential increase** in transcriptomics studies since 2000s
+- **Technological advances** driving accessibility and affordability  
+- **Expanding applications** across diverse biological systems
+- **Growing data repositories** enabling meta-analyses and comparisons
+
+*Source: Gemini AI trends prediction*
+</small>
+:::
+
+::: {.column width="60%"}
+![](figs/figure1_trends.png){width="100%"}
+:::
+
+::::
+
+---
+
+## Course Flow & Structure
+
+### Daily Plan (6 hours total)
+
+| Session | Focus | Format |
+|:--|:--|:--|
+| Morning | Concepts & Theory | Mini-lectures + discussion |
+| Afternoon | Application & Case Study | Group activity + presentation |
+
+---
+
+## Daily Activities Explained
+
+Each day you will:
+
+1. Learn the theory and logic behind a specific analysis step  
+2. Work on **a real research scenario** inspired by published studies  
+3. Prepare a short presentation proposing **your analytical strategy**  
+
+🎯 *Goal:* Learn by applying — not just by coding.
+
+---
+
+## Today's Goals
+
+By the end of today, you should be able to:
+
+- Define transcriptomics and describe its scope  
+- Identify common types of RNA-seq studies  
+- Understand the flow of data from sequencing to biological insight  
+- Know how the rest of the lecture will unfold
+
+---
+
+## Discussion Prompt
+
+💬 **Question:**  
+> “If you had to explain transcriptomics to a high school student, how would you do it?”
+
+Take 3 minutes with your group, then share your best analogy.
+
+---
+
+## Break
+
+☕ 15 min coffee break  
+Stretch, chat, and prepare for the next section:  
+**Introduction to RNA-seq experiments.**
