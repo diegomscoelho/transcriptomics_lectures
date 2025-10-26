@@ -1,20 +1,10 @@
----
-title: "Transcriptomics — From Quantification to Interpretation"
-subtitle: "Graduate Course Syllabus"
-author: "Diego M. Coelho"
-course_duration: "5 days × 6 hours/day"
-audience: "MSc and PhD students in Molecular Biology or related fields"
-layout: page
-tags: [transcriptomics, rnaseq, teaching, syllabus]
----
-
 # 🧬 Graduate Course: Transcriptomics — From Quantification to Interpretation
 
 **Duration:** 5 days × 6 hours/day  
 **Audience:** MSc and PhD students with general molecular biology background  
 **Focus:** Conceptual and bioinformatic understanding of transcriptomic technologies, their data types, and applications  
 **Format:** Morning theory (≈3h) + Afternoon case-based discussion (≈3h)  
-**Class:** From 10 to 20 graduate students
+**Class:** From 5 to 20 graduate students
 
 ## **Day 1 — Introduction to Transcriptomics & Quantitative RNA Methods**
 

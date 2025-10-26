@@ -326,7 +326,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Day 1 – Introduction to Transcriptomics</h1>
-  <p class="subtitle">Quantitative PCR (qPCR): Principles and Practice</p>
+  <p class="subtitle">Quantitative RNA methods: Principles and Practice</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -336,11 +336,68 @@
 <h2>Welcome &amp; Overview</h2>
 <h3 id="what-is-this-lecture-about">What is this lecture about?</h3>
 <ul>
-<li class="fragment">Understand the <strong>foundations of transcriptomics</strong></li>
+<li class="fragment">Understand the conceptual <strong>foundations of transcriptomics</strong></li>
 <li class="fragment">Learn how to design and interpret RNA-seq experiments</li>
 <li class="fragment">Develop critical thinking through <strong>case-based discussion</strong></li>
 <li class="fragment">Apply learned approaches to solve research problems</li>
 </ul>
+</section>
+<section id="welcome-overview-1" class="slide level2">
+<h2>Welcome &amp; Overview</h2>
+<h3 id="what-is-this-lecture-not-about">What is this lecture NOT about?</h3>
+<ul>
+<li class="fragment">Coding lots of downstream analysis.</li>
+<li class="fragment">Take-home exercises.</li>
+<li class="fragment">Long assays to deliver in weeks.</li>
+<li class="fragment">😂 Coding at all.</li>
+</ul>
+</section>
+<section id="course-flow-structure" class="slide level2">
+<h2>Course Flow &amp; Structure</h2>
+<h3 id="daily-plan-6-hours-total">Daily Plan (6 hours total)</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Session</th>
+<th style="text-align: left;">Focus</th>
+<th style="text-align: left;">Format</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Morning</td>
+<td style="text-align: left;">Concepts &amp; Theory</td>
+<td style="text-align: left;">Mini-lectures + discussion</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Afternoon</td>
+<td style="text-align: left;">Application &amp; Case Study</td>
+<td style="text-align: left;">Group activity + presentation</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="daily-activities-explained" class="slide level2">
+<h2>Daily Activities Explained</h2>
+<p>Each day you will:</p>
+<ol type="1">
+<li class="fragment">Learn the theory and logic behind a specific analysis step<br>
+</li>
+<li class="fragment">Work on <strong>a real research scenario</strong> inspired by published studies<br>
+</li>
+<li class="fragment">Prepare a short presentation proposing <strong>your analytical strategy</strong></li>
+</ol>
+<p>🎯 <em>Goal:</em> Learn by applying — not just by coding.</p>
+</section>
+<section id="course-topics" class="slide level2">
+<h2>Course Topics</h2>
+<ol type="1">
+<li class="fragment"><strong>Day 1:</strong> Brief Introduction + Quantitative RNA methods;</li>
+<li class="fragment"><strong>Day 2:</strong> Microarray: First Genome-Wide View;</li>
+<li class="fragment"><strong>Day 3:</strong> RNAseq: Short-Read Revolution;</li>
+<li class="fragment"><strong>Day 4:</strong> Long-Read Transcriptomics;</li>
+<li class="fragment"><strong>Day 5:</strong> Single-cell and Spatial Transcriptomics;</li>
+</ol>
 </section>
 <section id="the-central-dogma-of-biology" class="slide level2">
 <h2>The Central Dogma of Biology</h2>
@@ -411,43 +468,6 @@
 </div>
 </div>
 </section>
-<section id="course-flow-structure" class="slide level2">
-<h2>Course Flow &amp; Structure</h2>
-<h3 id="daily-plan-6-hours-total">Daily Plan (6 hours total)</h3>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Session</th>
-<th style="text-align: left;">Focus</th>
-<th style="text-align: left;">Format</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Morning</td>
-<td style="text-align: left;">Concepts &amp; Theory</td>
-<td style="text-align: left;">Mini-lectures + discussion</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Afternoon</td>
-<td style="text-align: left;">Application &amp; Case Study</td>
-<td style="text-align: left;">Group activity + presentation</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="daily-activities-explained" class="slide level2">
-<h2>Daily Activities Explained</h2>
-<p>Each day you will:</p>
-<ol type="1">
-<li class="fragment">Learn the theory and logic behind a specific analysis step<br>
-</li>
-<li class="fragment">Work on <strong>a real research scenario</strong> inspired by published studies<br>
-</li>
-<li class="fragment">Prepare a short presentation proposing <strong>your analytical strategy</strong></li>
-</ol>
-<p>🎯 <em>Goal:</em> Learn by applying — not just by coding.</p>
-</section>
 <section id="todays-goals" class="slide level2">
 <h2>Today’s Goals</h2>
 <p>By the end of today, you should be able to:</p>
@@ -467,6 +487,119 @@
 &gt; “If you had to explain transcriptomics to a high school student, how would you do it?”</p>
 <p>Take 3 minutes with your group, then share your best analogy.</p>
 </section>
+<section class="slide level2">
+
+</section>
+<section>
+<section id="historical-evolution-of-rna-quantification" class="title-slide slide level1 center">
+<h1>2. Historical Evolution of RNA Quantification</h1>
+
+</section>
+<section id="historical-evolution-overview" class="slide level2">
+<h2>Historical Evolution Overview</h2>
+<p><br> <br> <br></p>
+<h3 id="from-northern-blot-rt-pcr-qpcr"><strong>From Northern blot → RT-PCR → qPCR</strong></h3>
+<p>A progression toward greater sensitivity, precision, and throughput</p>
+</section>
+<section id="northern-blot-1977" class="slide level2">
+<h2>Northern Blot (1977)</h2>
+<p><strong>Principle</strong>: RNA separated by gel electrophoresis, transferred to membrane, detected with labeled probes</p>
+<p><strong>Advantages</strong>: Northern blotting provided direct RNA visualization with valuable size information, enabling researchers to detect different isoforms of the same gene. <strong>Limitations</strong>: Despite its pioneering role, the method suffered from low sensitivity, requiring microgram quantities of RNA. It was also limited to analyzing one gene at a time, making it a low-throughput approach. The labor-intensive protocol could take days per experiment.</p>
+</section>
+<section id="northern-blot-1977-1" class="slide level2">
+<h2>Northern Blot (1977)</h2>
+
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Northern_blot_diagram.png" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
+<section id="rt-pcr-1980s" class="slide level2">
+<h2>RT-PCR (1980s)</h2>
+<p><strong>Principle</strong>: RNA → cDNA → PCR amplification → endpoint detection</p>
+<p><strong>Advances</strong>: RT-PCR represented a significant leap forward with much higher sensitivity, requiring only nanogram quantities of RNA. The method was considerably faster, taking hours instead of days, and offered greater specificity through its primer-based approach, allowing targeted amplification of genes of interest. <strong>Limitations</strong>: However, RT-PCR relied on endpoint detection at the plateau phase of amplification, making it only semi-quantitative. Still depended on gel-based detection.</p>
+</section>
+<section id="rt-pcr-1980s-1" class="slide level2">
+<h2>RT-PCR (1980s)</h2>
+
+<img data-src="https://www.integra-biosciences.com/sites/default/files/styles/large/public/images/rt-pcr-workflow.jpg?itok=MFSzOajA" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"><p><strong>Method exemplification:</strong> Integra biosciences image.</p>
+</section>
+<section id="real-time-pcr-and-karry-mullis" class="slide level2">
+<h2>Real-Time PCR and Karry Mullis</h2>
+
+<img data-src="https://cdn.sanity.io/images/f1hjpcr4/production/c914aefc63621168387e35cb579aec13aac12ca3-700x394.jpg?w=1200&amp;h=675&amp;fit=crop&amp;crop=entropy&amp;q=60" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
+<section id="rt-qpcr-real-time-pcr-1990s-present" class="slide level2">
+<h2>RT-qPCR / Real-Time PCR (1990s-present)</h2>
+<p><br> <br></p>
+<p><strong>Principle</strong>: Monitor PCR in real-time using fluorescence. Track <strong>while</strong> amplification occurs (Ct value), not endpoint amount.</p>
+<p><small> <strong>Advances</strong>: qPCR revolutionized RNA quantification by achieving true quantitative precision through monitoring the exponential phase of amplification. The method boasts a wide dynamic range spanning 7-9 orders of magnitude and exceptional sensitivity capable of single-copy detection. Automation in 96 or 384-well formats dramatically increased throughput, while the closed-tube system reduced contamination risks that plagued earlier gel-based approaches. </small></p>
+</section>
+<section id="rt-qpcr-real-time-pcr-1990s-present-1" class="slide level2">
+<h2>RT-qPCR / Real-Time PCR (1990s-present)</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Method</th>
+<th style="text-align: right;">Year</th>
+<th style="text-align: left;">RNA Required</th>
+<th style="text-align: left;">Time</th>
+<th style="text-align: left;">Throughput</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Northern Blot</td>
+<td style="text-align: right;">1977</td>
+<td style="text-align: left;">μg</td>
+<td style="text-align: left;">2-3 days</td>
+<td style="text-align: left;">1 gene</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RT-PCR</td>
+<td style="text-align: right;">1985</td>
+<td style="text-align: left;">ng</td>
+<td style="text-align: left;">8 hours</td>
+<td style="text-align: left;">5-10 genes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">qPCR</td>
+<td style="text-align: right;">1996</td>
+<td style="text-align: left;">pg-ng</td>
+<td style="text-align: left;">2 hours</td>
+<td style="text-align: left;">96-384 genes</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="rt-qpcr-real-time-pcr-1990s-present-2" class="slide level2">
+<h2>RT-qPCR / Real-Time PCR (1990s-present)</h2>
+<p><strong>Principle</strong>: Monitor PCR in real-time using fluorescence. Track <strong>while</strong> amplification occurs (Ct value), not endpoint amount.</p>
+<p><strong>Advances</strong>: qPCR revolutionized RNA quantification by achieving true quantitative precision through monitoring the exponential phase of amplification. The method boasts a wide dynamic range spanning 7-9 orders of magnitude and exceptional sensitivity capable of single-copy detection. Automation in 96 or 384-well formats dramatically increased throughput, while the closed-tube system reduced contamination risks that plagued earlier gel-based approaches.</p>
+</section>
+<section id="case-1-alves-et-al-2021" class="slide level2">
+<h2>Case 1 (Alves et al, 2021)</h2>
+
+<img data-src="figs/case1_RT-qPCR.png" style="width:100.0%" class="r-stretch"><p><small> <strong>Fig. 9.</strong> Overexpression of a dominant-negative ZBTB20 protein in cortical progenitors affects astrogliogenesis. (A) Schematic showing dissection of the dorsal telencephalon at E18.5 in control and Zbtb20cKO embryos, followed by RNA extraction, and RT-qPCR for genes encoding ZBTB family members. Violin plots represent fold change expression of each ZBTB family member relative to the controls (2−ΔΔCt). ZBTB gene numbers are listed on the x-axis. Gapdh was used as an endogenous control for all samples. Data represented as quartiles and median values; n=4 mice/group; unpaired t-test </small></p>
+</section>
+<section id="case-2-trujillo-et-al-2021" class="slide level2">
+<h2>Case 2 (Trujillo et al, 2021)</h2>
+
+<img data-src="figs/case2_RT-qPCR.png" class="quarto-figure quarto-figure-center r-stretch" style="width:150.0%"><p><small> <strong>Figure 1.</strong> Human MECP2-KO neurons exhibit alterations in synapse-relevant genes and pathways. <strong>C</strong> RT–qPCR array revealed differential gene expression between control and MECP2-KO 28-day neurons. The P values are calculated based on a Student’s t-test of the replicate 2−ΔΔCt values for each gene in the control group and KO groups (WT83/Q83X cell lines were used; N = 3 clones from each genotype). <strong>D</strong> Overtime quantitative gene expression profile of many of the involved genes relevant to synaptic function (days 14 and 28 post-differentiation; normalized by control NPC expression). </small></p>
+</section>
+<section id="case-3-chen-et-al-2017" class="slide level2">
+<h2>Case 3 (Chen et al, 2017)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/case3_RT-qPCR.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<p><small> <strong>Abstract.</strong> MicroRNA‑137 (miR‑137) has been reported to be abnormally expressed in a variety of types of cancer, including ovarian cancer. &lt;…&gt; the ovarian cancer cell line, A2780, through lentiviral transduction, puromycin selection and single‑cell culture. &lt;…&gt; Genome editing was detected in 72% of the clones derived from sgRNA2, 4% from sgRNA3 and 0% from sgRNA1. Of the clones from sgRNA2, 32% contained 1 edited miR‑137 allele and 40% contained 2 edited miR‑137 alleles. <strong>The expression of miR‑137 in clones #2 and #3 could not be detected by reverse transcription‑­quantitative polymerase chain reaction.</strong> </small></p>
+</div>
+</div>
+</section>
 <section id="break" class="slide level2">
 <h2>Break</h2>
 <p>☕ 15 min coffee break<br>
@@ -477,7 +610,7 @@ Stretch, chat, and prepare for the next section:<br>
 
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -688,6 +821,44 @@ Stretch, chat, and prepare for the next section:<br>
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

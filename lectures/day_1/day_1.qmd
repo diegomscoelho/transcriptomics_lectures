@@ -1,6 +1,6 @@
 ---
 title: "Day 1 – Introduction to Transcriptomics"
-subtitle: "Quantitative PCR (qPCR): Principles and Practice"
+subtitle: "Quantitative RNA methods: Principles and Practice"
 format: 
   revealjs:
     theme: [default, custom.scss]
@@ -13,10 +13,54 @@ format:
 
 ### What is this lecture about?
 
-- Understand the **foundations of transcriptomics**
+- Understand the conceptual **foundations of transcriptomics**
 - Learn how to design and interpret RNA-seq experiments
 - Develop critical thinking through **case-based discussion**
 - Apply learned approaches to solve research problems
+
+---
+
+## Welcome & Overview
+
+### What is this lecture NOT about?
+
+- Coding lots of downstream analysis.
+- Take-home exercises.
+- Long assays to deliver in weeks.
+- 😂 Coding at all.
+
+---
+
+## Course Flow & Structure
+
+### Daily Plan (6 hours total)
+
+| Session | Focus | Format |
+|:--|:--|:--|
+| Morning | Concepts & Theory | Mini-lectures + discussion |
+| Afternoon | Application & Case Study | Group activity + presentation |
+
+---
+
+## Daily Activities Explained
+
+Each day you will:
+
+1. Learn the theory and logic behind a specific analysis step  
+2. Work on **a real research scenario** inspired by published studies  
+3. Prepare a short presentation proposing **your analytical strategy**  
+
+🎯 *Goal:* Learn by applying — not just by coding.
+
+---
+
+## Course Topics
+
+1. **Day 1:** Brief Introduction + Quantitative RNA methods;
+2. **Day 2:** Microarray: First Genome-Wide View;
+3. **Day 3:** RNAseq: Short-Read Revolution;
+4. **Day 4:** Long-Read Transcriptomics;
+5. **Day 5:** Single-cell and Spatial Transcriptomics;
 
 ---
 
@@ -103,29 +147,6 @@ Essential for understanding:
 
 ---
 
-## Course Flow & Structure
-
-### Daily Plan (6 hours total)
-
-| Session | Focus | Format |
-|:--|:--|:--|
-| Morning | Concepts & Theory | Mini-lectures + discussion |
-| Afternoon | Application & Case Study | Group activity + presentation |
-
----
-
-## Daily Activities Explained
-
-Each day you will:
-
-1. Learn the theory and logic behind a specific analysis step  
-2. Work on **a real research scenario** inspired by published studies  
-3. Prepare a short presentation proposing **your analytical strategy**  
-
-🎯 *Goal:* Learn by applying — not just by coding.
-
----
-
 ## Today's Goals
 
 By the end of today, you should be able to:
@@ -145,6 +166,145 @@ By the end of today, you should be able to:
 Take 3 minutes with your group, then share your best analogy.
 
 ---
+
+# 2. Historical Evolution of RNA Quantification
+
+## Historical Evolution Overview
+
+<br>
+<br>
+<br>
+
+### **From Northern blot → RT-PCR → qPCR**
+
+A progression toward greater sensitivity, precision, and throughput
+
+---
+
+## Northern Blot (1977)
+
+**Principle**: RNA separated by gel electrophoresis, transferred to membrane, detected with labeled probes
+
+**Advantages**: Northern blotting provided direct RNA visualization with valuable size information, enabling researchers to detect different isoforms of the same gene. **Limitations**: Despite its pioneering role, the method suffered from low sensitivity, requiring microgram quantities of RNA. It was also limited to analyzing one gene at a time, making it a low-throughput approach. The labor-intensive protocol could take days per experiment.
+
+---
+
+## Northern Blot (1977)
+
+![](https://upload.wikimedia.org/wikipedia/commons/4/4d/Northern_blot_diagram.png){fig-align="center" width="50%"}
+
+---
+
+## RT-PCR (1980s)
+
+**Principle**: RNA → cDNA → PCR amplification → endpoint detection
+
+**Advances**: RT-PCR represented a significant leap forward with much higher sensitivity, requiring only nanogram quantities of RNA. The method was considerably faster, taking hours instead of days, and offered greater specificity through its primer-based approach, allowing targeted amplification of genes of interest. **Limitations**: However, RT-PCR relied on endpoint detection at the plateau phase of amplification, making it only semi-quantitative. Still depended on gel-based detection.
+
+---
+
+## RT-PCR (1980s) 
+
+![](https://www.integra-biosciences.com/sites/default/files/styles/large/public/images/rt-pcr-workflow.jpg?itok=MFSzOajA){fig-align="center" width="50%"}
+
+
+**Method exemplification:** Integra biosciences image.
+
+---
+
+## Real-Time PCR and Karry Mullis
+
+![](https://cdn.sanity.io/images/f1hjpcr4/production/c914aefc63621168387e35cb579aec13aac12ca3-700x394.jpg?w=1200&h=675&fit=crop&crop=entropy&q=60){fig-align="center" width="50%"}
+
+
+---
+
+## RT-qPCR / Real-Time PCR (1990s-present)
+
+<br>
+<br>
+
+**Principle**: Monitor PCR in real-time using fluorescence. Track **while** amplification occurs (Ct value), not endpoint amount.
+
+<small>
+**Advances**: qPCR revolutionized RNA quantification by achieving true quantitative precision through monitoring the exponential phase of amplification. The method boasts a wide dynamic range spanning 7-9 orders of magnitude and exceptional sensitivity capable of single-copy detection. Automation in 96 or 384-well formats dramatically increased throughput, while the closed-tube system reduced contamination risks that plagued earlier gel-based approaches.
+</small>
+
+---
+
+## RT-qPCR / Real-Time PCR (1990s-present)
+
+```{r comparison-table}
+
+library(knitr)
+
+methods_data <- data.frame(
+  Method = c("Northern Blot", "RT-PCR", "qPCR"),
+  Year = c(1977, 1985, 1996),
+  `RNA Required` = c("μg", "ng", "pg-ng"),
+  `Time` = c("2-3 days", "8 hours", "2 hours"),
+  `Throughput` = c("1 gene", "5-10 genes", "96-384 genes"),
+  check.names = FALSE
+)
+
+kable(methods_data)
+```
+
+---
+
+## RT-qPCR / Real-Time PCR (1990s-present)
+
+**Principle**: Monitor PCR in real-time using fluorescence. Track **while** amplification occurs (Ct value), not endpoint amount.
+
+**Advances**: qPCR revolutionized RNA quantification by achieving true quantitative precision through monitoring the exponential phase of amplification. The method boasts a wide dynamic range spanning 7-9 orders of magnitude and exceptional sensitivity capable of single-copy detection. Automation in 96 or 384-well formats dramatically increased throughput, while the closed-tube system reduced contamination risks that plagued earlier gel-based approaches.
+
+---
+
+## Case 1 (Alves et al, 2021)
+
+![](figs/case1_RT-qPCR.png){width="100%"}
+
+<small>
+**Fig. 9.** Overexpression of a dominant-negative ZBTB20 protein in cortical progenitors affects astrogliogenesis. (A) Schematic showing dissection of the dorsal telencephalon at E18.5 in control and Zbtb20cKO embryos, followed by RNA extraction, and RT-qPCR for genes encoding ZBTB family members. Violin plots represent fold change expression of each ZBTB family member relative to the controls (2−ΔΔCt). ZBTB gene numbers are listed on the x-axis. Gapdh was used as an endogenous control for all samples. Data represented as quartiles and median values; n=4 mice/group; unpaired t-test
+</small>
+
+---
+
+## Case 2 (Trujillo et al, 2021)
+
+![](figs/case2_RT-qPCR.png){width="150%" fig-align="center"}
+
+<small>
+**Figure 1.** Human MECP2-KO neurons exhibit alterations in synapse-relevant genes and pathways. **C** RT–qPCR array revealed differential gene expression between control and MECP2-KO 28-day neurons. The P values are calculated based on a Student’s t-test of the replicate 2−ΔΔCt values for each gene in the control group and KO groups (WT83/Q83X cell lines were used; N = 3 clones from each genotype). **D** Overtime quantitative gene expression profile of many of the involved genes relevant to synaptic function (days 14 and 28 post-differentiation; normalized by control
+NPC expression).
+</small>
+
+---
+
+## Case 3 (Chen et al, 2017)
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+![](figs/case3_RT-qPCR.png){width="100%" fig-align="center"}
+
+:::
+
+::: {.column width="40%"}
+
+<small>
+**Abstract.** MicroRNA‑137 (miR‑137) has been reported to be
+abnormally expressed in a variety of types of cancer, including
+ovarian cancer. <...> the ovarian cancer cell line, A2780, through lentiviral transduction, puromycin selection and single‑cell culture. <...> Genome editing was detected in 72% of the clones derived from sgRNA2, 4% from sgRNA3 and 0% from sgRNA1. Of the clones from sgRNA2, 32% contained 1 edited miR‑137 allele and 40% contained 2 edited miR‑137 alleles. **The expression of miR‑137 in clones #2 and #3 could not be detected by reverse transcription‑­quantitative polymerase chain reaction.**
+</small>
+
+:::
+
+::::
+
+---
+
 
 ## Break
 
