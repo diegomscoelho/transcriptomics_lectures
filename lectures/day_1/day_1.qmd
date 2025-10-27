@@ -163,6 +163,8 @@ Essential for understanding:
 
 # Quantitative RNA methods
 
+---
+
 ## Historical Evolution Overview
 
 <br>
@@ -197,7 +199,7 @@ A progression toward greater sensitivity, precision, and throughput
 
 ---
 
-## Reverse Transcription PCR / RT-PCR (1980s) 
+## Reverse Transcription PCR / RT-PCR
 
 ![](https://www.integra-biosciences.com/sites/default/files/styles/large/public/images/rt-pcr-workflow.jpg?itok=MFSzOajA){fig-align="center" width="50%"}
 
@@ -206,14 +208,14 @@ A progression toward greater sensitivity, precision, and throughput
 
 ---
 
-## Real-Time PCR and Karry Mullis (1983)
+## Real-Time PCR and Karry Mullis (1983+)
 
 ![](https://cdn.sanity.io/images/f1hjpcr4/production/c914aefc63621168387e35cb579aec13aac12ca3-700x394.jpg?w=1200&h=675&fit=crop&crop=entropy&q=60){fig-align="center" width="50%"}
 
 
 ---
 
-## RT-qPCR / Real-Time PCR (1996s-present)
+## RT-qPCR / Real-Time PCR
 
 <br>
 <br>
@@ -226,7 +228,13 @@ A progression toward greater sensitivity, precision, and throughput
 
 ---
 
-## RT-qPCR / Real-Time PCR (1996s-present)
+## RT-qPCR / Real-Time PCR
+
+![](https://i0.wp.com/microbeonline.com/wp-content/uploads/2016/07/Polymerase_chain_reaction.svg_.png?resize=768%2C401&ssl=1){fig-align="center" width="100%"}
+
+---
+
+## RT-qPCR / Real-Time PCR
 
 ```{r comparison-table}
 
@@ -262,9 +270,52 @@ kable(methods_data)
 
 ---
 
+## qPCR - Amplification plot
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](https://toptipbio.com/wp-content/uploads/2018/03/qPCR-amplification-plot-annotated-696x479.jpg){width="100%" fig-align="center"}
+:::
+
+::: {.column width="50%"}
+![](https://toptipbio.com/wp-content/uploads/2018/03/qPCR-amplification-plot-with-threshold-696x479.jpg
+){width="100%" fig-align="center"}
+:::
+
+::::
+
+<small>
+The cycle threshold (Ct) value of a reaction is defined as the cycle number when the fluorescence of a PCR product can be detected above the background signal. In order to calculate the Ct value, it is necessary to draw a horizontal line (threshold) on the amplification plot. The placement of this line is often determined by the qPCR software, however, users can manually place this line. Ideally, the threshold is placed at the point when the reaction is in the exponential phase, therefore it will not be confused with the background signal.
+</small>
+
+---
+
+## Ct vs. Cq values
+
+Cq (Quantification cycle) was later proposed as a standardized term by the MIQE guidelines (Minimum Information for Publication of Quantitative Real-Time PCR Experiments). The idea was to reduce confusion — different instruments used “Ct,” “Cp,” “Crossing point,” etc. Ct ≈ Cq — they mean the same thing (the cycle at which amplification is first detected). The term Cq is just the recommended one for reporting data in publications, because it’s more general and standardized.
+
+---
+
 ## 2⁻ΔΔCt method
 
 The 2⁻ΔΔCt method is a simple way to calculate relative changes in gene expression between two samples (e.g., treated vs. control, KO vs. WT) using RT-qPCR. Our "bioinformatics" small approach to get differences in control vs. case setup.
+
+---
+
+## Housekeeping genes
+
+Housekeeping genes are essential for the basic and constant functions required for a cell's survival, such as metabolism and growth. They are expected to be expressed in all cells of an organism, regardless of cell type or developmental stage, though their expression levels can vary. This makes them **valuable as reference genes in experiments like qPCR** to normalize gene expression levels between different samples. 
+
+---
+
+## Housekeeping genes
+
+**Actin, beta (ACTB):** A common choice for many experiments, but not always stable.
+**Glyceraldehyde-3-phosphate dehydrogenase (GAPDH):** Another widely used gene, though stability can vary depending on conditions.
+**18S ribosomal RNA (18S rRNA):** Frequently used, especially for in vitro hypoxia experiments.
+**Ubiquitin C (UBC):** Often used in studies, but its stability depends on the specific experimental context.
+**Hypoxanthine guanine phosphoribosyl transferase 1 (HPRT1):** Used in some studies, though its expression can be unstable under certain conditions. 
 
 ---
 
@@ -404,3 +455,11 @@ ovarian cancer. <...> the ovarian cancer cell line, A2780, through lentiviral tr
 ☕ 15 min coffee break  
 Stretch, chat, and prepare for the next section:  
 **Application & Case Study**
+
+
+# Case study
+
+## Today assay
+
+- Research for ~1h for a qPCR experiment in any research study.
+- Make a two slides presentation (5 minutes or less) in our colective google presentations: https://docs.google.com/presentation/d/17SfSTSQEb1F1wk3JXD0Q4h-1Hb5dTlzAntmwiRo1Ows/edit?usp=sharing

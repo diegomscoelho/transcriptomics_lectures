@@ -518,23 +518,27 @@
 <p><strong>Principle</strong>: RNA → cDNA → PCR amplification → endpoint detection</p>
 <p><strong>Advances</strong>: RT-PCR represented a significant leap forward with much higher sensitivity, requiring only nanogram quantities of RNA. The method was considerably faster, taking hours instead of days, and offered greater specificity through its primer-based approach, allowing targeted amplification of genes of interest. <strong>Limitations</strong>: However, RT-PCR relied on endpoint detection at the plateau phase of amplification, making it only semi-quantitative. Still depended on gel-based detection.</p>
 </section>
-<section id="reverse-transcription-pcr-rt-pcr-1980s-1" class="slide level2">
-<h2>Reverse Transcription PCR / RT-PCR (1980s)</h2>
+<section id="reverse-transcription-pcr-rt-pcr" class="slide level2">
+<h2>Reverse Transcription PCR / RT-PCR</h2>
 
 <img data-src="https://www.integra-biosciences.com/sites/default/files/styles/large/public/images/rt-pcr-workflow.jpg?itok=MFSzOajA" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"><p><strong>Method exemplification:</strong> Integra biosciences image.</p>
 </section>
 <section id="real-time-pcr-and-karry-mullis-1983" class="slide level2">
-<h2>Real-Time PCR and Karry Mullis (1983)</h2>
+<h2>Real-Time PCR and Karry Mullis (1983+)</h2>
 
 <img data-src="https://cdn.sanity.io/images/f1hjpcr4/production/c914aefc63621168387e35cb579aec13aac12ca3-700x394.jpg?w=1200&amp;h=675&amp;fit=crop&amp;crop=entropy&amp;q=60" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
-<section id="rt-qpcr-real-time-pcr-1996s-present" class="slide level2">
-<h2>RT-qPCR / Real-Time PCR (1996s-present)</h2>
+<section id="rt-qpcr-real-time-pcr" class="slide level2">
+<h2>RT-qPCR / Real-Time PCR</h2>
 <p><br> <br></p>
 <p><strong>Principle</strong>: Monitor PCR in real-time using fluorescence. Track <strong>while</strong> amplification occurs (Ct value), not endpoint amount.</p>
 <p><small> <strong>Advances</strong>: qPCR revolutionized RNA quantification by achieving true quantitative precision through monitoring the exponential phase of amplification. The method boasts a wide dynamic range spanning 7-9 orders of magnitude and exceptional sensitivity capable of single-copy detection. Automation in 96 or 384-well formats dramatically increased throughput, while the closed-tube system reduced contamination risks that plagued earlier gel-based approaches. </small></p>
 </section>
-<section id="rt-qpcr-real-time-pcr-1996s-present-1" class="slide level2">
-<h2>RT-qPCR / Real-Time PCR (1996s-present)</h2>
+<section id="rt-qpcr-real-time-pcr-1" class="slide level2">
+<h2>RT-qPCR / Real-Time PCR</h2>
+
+<img data-src="https://i0.wp.com/microbeonline.com/wp-content/uploads/2016/07/Polymerase_chain_reaction.svg_.png?resize=768%2C401&amp;ssl=1" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="rt-qpcr-real-time-pcr-2" class="slide level2">
+<h2>RT-qPCR / Real-Time PCR</h2>
 <div class="cell">
 <div class="cell-output-display">
 <table>
@@ -581,9 +585,40 @@
 <p><iframe src="https://www.youtube.com/embed/TAnx9963SRw" title="RT-qPCR explained" style="width: 80vw; height: 45vw; max-width: 960px; max-height: 540px; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""> </iframe></p>
 </div>
 </section>
+<section id="qpcr---amplification-plot" class="slide level2">
+<h2>qPCR - Amplification plot</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://toptipbio.com/wp-content/uploads/2018/03/qPCR-amplification-plot-annotated-696x479.jpg" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://toptipbio.com/wp-content/uploads/2018/03/qPCR-amplification-plot-with-threshold-696x479.jpg" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><small> The cycle threshold (Ct) value of a reaction is defined as the cycle number when the fluorescence of a PCR product can be detected above the background signal. In order to calculate the Ct value, it is necessary to draw a horizontal line (threshold) on the amplification plot. The placement of this line is often determined by the qPCR software, however, users can manually place this line. Ideally, the threshold is placed at the point when the reaction is in the exponential phase, therefore it will not be confused with the background signal. </small></p>
+</section>
+<section id="ct-vs.-cq-values" class="slide level2">
+<h2>Ct vs.&nbsp;Cq values</h2>
+<p>Cq (Quantification cycle) was later proposed as a standardized term by the MIQE guidelines (Minimum Information for Publication of Quantitative Real-Time PCR Experiments). The idea was to reduce confusion — different instruments used “Ct,” “Cp,” “Crossing point,” etc. Ct ≈ Cq — they mean the same thing (the cycle at which amplification is first detected). The term Cq is just the recommended one for reporting data in publications, because it’s more general and standardized.</p>
+</section>
 <section id="δδct-method" class="slide level2">
 <h2>2⁻ΔΔCt method</h2>
 <p>The 2⁻ΔΔCt method is a simple way to calculate relative changes in gene expression between two samples (e.g., treated vs.&nbsp;control, KO vs.&nbsp;WT) using RT-qPCR. Our “bioinformatics” small approach to get differences in control vs.&nbsp;case setup.</p>
+</section>
+<section id="housekeeping-genes" class="slide level2">
+<h2>Housekeeping genes</h2>
+<p>Housekeeping genes are essential for the basic and constant functions required for a cell’s survival, such as metabolism and growth. They are expected to be expressed in all cells of an organism, regardless of cell type or developmental stage, though their expression levels can vary. This makes them <strong>valuable as reference genes in experiments like qPCR</strong> to normalize gene expression levels between different samples.</p>
+</section>
+<section id="housekeeping-genes-1" class="slide level2">
+<h2>Housekeeping genes</h2>
+<p><strong>Actin, beta (ACTB):</strong> A common choice for many experiments, but not always stable. <strong>Glyceraldehyde-3-phosphate dehydrogenase (GAPDH):</strong> Another widely used gene, though stability can vary depending on conditions. <strong>18S ribosomal RNA (18S rRNA):</strong> Frequently used, especially for in vitro hypoxia experiments. <strong>Ubiquitin C (UBC):</strong> Often used in studies, but its stability depends on the specific experimental context. <strong>Hypoxanthine guanine phosphoribosyl transferase 1 (HPRT1):</strong> Used in some studies, though its expression can be unstable under certain conditions.</p>
 </section>
 <section id="formula" class="slide level2">
 <h2>Formula</h2>
@@ -813,12 +848,19 @@
 <p>☕ 15 min coffee break<br>
 Stretch, chat, and prepare for the next section:<br>
 <strong>Application &amp; Case Study</strong></p>
+</section></section>
+<section id="case-study" class="title-slide slide level1 center">
+<h1>Case study</h1>
+<ul>
+<li class="fragment">Research for ~1h for a qPCR experiment in any research study.</li>
+<li class="fragment">Make a two slides presentation (5 minutes or less) in our colective google presentations: https://docs.google.com/presentation/d/17SfSTSQEb1F1wk3JXD0Q4h-1Hb5dTlzAntmwiRo1Ows/edit?usp=sharing</li>
+</ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
