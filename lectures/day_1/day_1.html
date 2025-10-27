@@ -337,7 +337,7 @@
 <h3 id="what-is-this-lecture-about">What is this lecture about?</h3>
 <ul>
 <li class="fragment">Understand the conceptual <strong>foundations of transcriptomics</strong></li>
-<li class="fragment">Learn how to design and interpret RNA-seq experiments</li>
+<li class="fragment">Learn how to design and interpret transcriptomics experiments</li>
 <li class="fragment">Develop critical thinking through <strong>case-based discussion</strong></li>
 <li class="fragment">Apply learned approaches to solve research problems</li>
 </ul>
@@ -356,6 +356,11 @@
 <h2>Course Flow &amp; Structure</h2>
 <h3 id="daily-plan-6-hours-total">Daily Plan (6 hours total)</h3>
 <table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Session</th>
@@ -365,14 +370,14 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Morning</td>
+<td style="text-align: left;">Afternoon #1</td>
 <td style="text-align: left;">Concepts &amp; Theory</td>
 <td style="text-align: left;">Mini-lectures + discussion</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Afternoon</td>
+<td style="text-align: left;">Afternoon #2</td>
 <td style="text-align: left;">Application &amp; Case Study</td>
-<td style="text-align: left;">Group activity + presentation</td>
+<td style="text-align: left;">Research (1h) + Individual pitches (5 min)</td>
 </tr>
 </tbody>
 </table>
@@ -383,9 +388,8 @@
 <ol type="1">
 <li class="fragment">Learn the theory and logic behind a specific analysis step<br>
 </li>
-<li class="fragment">Work on <strong>a real research scenario</strong> inspired by published studies<br>
-</li>
-<li class="fragment">Prepare a short presentation proposing <strong>your analytical strategy</strong></li>
+<li class="fragment">Work on <strong>a real research scenario</strong> inspired by published studies</li>
+<li class="fragment">Prepare a short presentation exploring <strong>some analytical strategy</strong></li>
 </ol>
 <p>🎯 <em>Goal:</em> Learn by applying — not just by coding.</p>
 </section>
@@ -398,6 +402,24 @@
 <li class="fragment"><strong>Day 4:</strong> Long-Read Transcriptomics;</li>
 <li class="fragment"><strong>Day 5:</strong> Single-cell and Spatial Transcriptomics;</li>
 </ol>
+</section>
+<section id="todays-goals" class="slide level2">
+<h2>Today’s Goals</h2>
+<p>By the end of today, you should be able to:</p>
+<ul>
+<li class="fragment">Define transcriptomics and describe its scope<br>
+</li>
+<li class="fragment">Identify common types of transcriptomics techniques</li>
+<li class="fragment">Know how the rest of the lecture will unfold</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section>
+<section>
+<section id="brief-introduction-to-transcriptomics" class="title-slide slide level1 center">
+<h1>Brief Introduction to Transcriptomics</h1>
+
 </section>
 <section id="the-central-dogma-of-biology" class="slide level2">
 <h2>The Central Dogma of Biology</h2>
@@ -468,31 +490,12 @@
 </div>
 </div>
 </section>
-<section id="todays-goals" class="slide level2">
-<h2>Today’s Goals</h2>
-<p>By the end of today, you should be able to:</p>
-<ul>
-<li class="fragment">Define transcriptomics and describe its scope<br>
-</li>
-<li class="fragment">Identify common types of RNA-seq studies<br>
-</li>
-<li class="fragment">Understand the flow of data from sequencing to biological insight<br>
-</li>
-<li class="fragment">Know how the rest of the lecture will unfold</li>
-</ul>
-</section>
-<section id="discussion-prompt" class="slide level2">
-<h2>Discussion Prompt</h2>
-<p>💬 <strong>Question:</strong><br>
-&gt; “If you had to explain transcriptomics to a high school student, how would you do it?”</p>
-<p>Take 3 minutes with your group, then share your best analogy.</p>
-</section>
 <section class="slide level2">
 
-</section>
+</section></section>
 <section>
-<section id="historical-evolution-of-rna-quantification" class="title-slide slide level1 center">
-<h1>2. Historical Evolution of RNA Quantification</h1>
+<section id="quantitative-rna-methods" class="title-slide slide level1 center">
+<h1>Quantitative RNA methods</h1>
 
 </section>
 <section id="historical-evolution-overview" class="slide level2">
@@ -510,28 +513,28 @@
 <h2>Northern Blot (1977)</h2>
 
 <img data-src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Northern_blot_diagram.png" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
-<section id="rt-pcr-1980s" class="slide level2">
-<h2>RT-PCR (1980s)</h2>
+<section id="reverse-transcription-pcr-rt-pcr-1980s" class="slide level2">
+<h2>Reverse Transcription PCR / RT-PCR (1980s)</h2>
 <p><strong>Principle</strong>: RNA → cDNA → PCR amplification → endpoint detection</p>
 <p><strong>Advances</strong>: RT-PCR represented a significant leap forward with much higher sensitivity, requiring only nanogram quantities of RNA. The method was considerably faster, taking hours instead of days, and offered greater specificity through its primer-based approach, allowing targeted amplification of genes of interest. <strong>Limitations</strong>: However, RT-PCR relied on endpoint detection at the plateau phase of amplification, making it only semi-quantitative. Still depended on gel-based detection.</p>
 </section>
-<section id="rt-pcr-1980s-1" class="slide level2">
-<h2>RT-PCR (1980s)</h2>
+<section id="reverse-transcription-pcr-rt-pcr-1980s-1" class="slide level2">
+<h2>Reverse Transcription PCR / RT-PCR (1980s)</h2>
 
 <img data-src="https://www.integra-biosciences.com/sites/default/files/styles/large/public/images/rt-pcr-workflow.jpg?itok=MFSzOajA" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"><p><strong>Method exemplification:</strong> Integra biosciences image.</p>
 </section>
-<section id="real-time-pcr-and-karry-mullis" class="slide level2">
-<h2>Real-Time PCR and Karry Mullis</h2>
+<section id="real-time-pcr-and-karry-mullis-1983" class="slide level2">
+<h2>Real-Time PCR and Karry Mullis (1983)</h2>
 
 <img data-src="https://cdn.sanity.io/images/f1hjpcr4/production/c914aefc63621168387e35cb579aec13aac12ca3-700x394.jpg?w=1200&amp;h=675&amp;fit=crop&amp;crop=entropy&amp;q=60" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
-<section id="rt-qpcr-real-time-pcr-1990s-present" class="slide level2">
-<h2>RT-qPCR / Real-Time PCR (1990s-present)</h2>
+<section id="rt-qpcr-real-time-pcr-1996s-present" class="slide level2">
+<h2>RT-qPCR / Real-Time PCR (1996s-present)</h2>
 <p><br> <br></p>
 <p><strong>Principle</strong>: Monitor PCR in real-time using fluorescence. Track <strong>while</strong> amplification occurs (Ct value), not endpoint amount.</p>
 <p><small> <strong>Advances</strong>: qPCR revolutionized RNA quantification by achieving true quantitative precision through monitoring the exponential phase of amplification. The method boasts a wide dynamic range spanning 7-9 orders of magnitude and exceptional sensitivity capable of single-copy detection. Automation in 96 or 384-well formats dramatically increased throughput, while the closed-tube system reduced contamination risks that plagued earlier gel-based approaches. </small></p>
 </section>
-<section id="rt-qpcr-real-time-pcr-1990s-present-1" class="slide level2">
-<h2>RT-qPCR / Real-Time PCR (1990s-present)</h2>
+<section id="rt-qpcr-real-time-pcr-1996s-present-1" class="slide level2">
+<h2>RT-qPCR / Real-Time PCR (1996s-present)</h2>
 <div class="cell">
 <div class="cell-output-display">
 <table>
@@ -571,10 +574,215 @@
 </div>
 </div>
 </section>
-<section id="rt-qpcr-real-time-pcr-1990s-present-2" class="slide level2">
-<h2>RT-qPCR / Real-Time PCR (1990s-present)</h2>
-<p><strong>Principle</strong>: Monitor PCR in real-time using fluorescence. Track <strong>while</strong> amplification occurs (Ct value), not endpoint amount.</p>
-<p><strong>Advances</strong>: qPCR revolutionized RNA quantification by achieving true quantitative precision through monitoring the exponential phase of amplification. The method boasts a wide dynamic range spanning 7-9 orders of magnitude and exceptional sensitivity capable of single-copy detection. Automation in 96 or 384-well formats dramatically increased throughput, while the closed-tube system reduced contamination risks that plagued earlier gel-based approaches.</p>
+<section id="how-rt-qpcr-works" class="slide level2">
+<h2>How RT-qPCR Works</h2>
+<p><br></p>
+<div style="display: flex; justify-content: center; align-items: center; height: 80vh;">
+<p><iframe src="https://www.youtube.com/embed/TAnx9963SRw" title="RT-qPCR explained" style="width: 80vw; height: 45vw; max-width: 960px; max-height: 540px; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""> </iframe></p>
+</div>
+</section>
+<section id="δδct-method" class="slide level2">
+<h2>2⁻ΔΔCt method</h2>
+<p>The 2⁻ΔΔCt method is a simple way to calculate relative changes in gene expression between two samples (e.g., treated vs.&nbsp;control, KO vs.&nbsp;WT) using RT-qPCR. Our “bioinformatics” small approach to get differences in control vs.&nbsp;case setup.</p>
+</section>
+<section id="formula" class="slide level2">
+<h2>Formula</h2>
+<p><span class="math display">\[
+\text{Fold change} \;=\; 2^{-\Delta\Delta C_t}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\Delta C_t \;=\; C_{t,\text{target}} - C_{t,\text{reference}}
+\qquad\text{and}\qquad
+\Delta\Delta C_t \;=\; \Delta C_{t,\text{sample}} - \Delta C_{t,\text{control}}.
+\]</span></p>
+</section>
+<section id="step-by-step-logic" class="slide level2">
+<h2>Step-by-step logic</h2>
+<ol type="1">
+<li class="fragment"><p>Normalize the target gene to a reference (housekeeping) gene:<br>
+<span class="math display">\[\Delta C_t = C_t(\text{target}) - C_t(\text{reference}).\]</span></p></li>
+<li class="fragment"><p>Compare the normalized values between conditions:<br>
+<span class="math display">\[\Delta\Delta C_t = \Delta C_t(\text{treatment}) - \Delta C_t(\text{control}).\]</span></p></li>
+<li class="fragment"><p>Compute relative expression (fold change):<br>
+<span class="math display">\[\text{Relative expression} = 2^{-\Delta\Delta C_t}.\]</span></p></li>
+</ol>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Condition</th>
+<th>Ct(target)</th>
+<th>Ct(reference)</th>
+<th>ΔCt</th>
+<th>ΔΔCt</th>
+<th>2⁻ΔΔCt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Control</td>
+<td>25.0</td>
+<td>20.0</td>
+<td>5.0</td>
+<td>0.0</td>
+<td>1.00</td>
+</tr>
+<tr class="even">
+<td>Treated</td>
+<td>22.0</td>
+<td>20.5</td>
+<td>1.5</td>
+<td>-3.5</td>
+<td>11.31</td>
+</tr>
+</tbody>
+</table>
+<p>→ Interpretation: <strong>~11-fold upregulation</strong> of the target gene in treated samples.</p>
+</section>
+<section id="example-2" class="slide level2">
+<h2>Example 2</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Condition</th>
+<th>Ct(target)</th>
+<th>Ct(reference)</th>
+<th>ΔCt</th>
+<th>ΔΔCt</th>
+<th>2⁻ΔΔCt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Control</td>
+<td>23.0</td>
+<td>19.5</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>Treated</td>
+<td>26.0</td>
+<td>20.0</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example-2-1" class="slide level2">
+<h2>Example 2</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Condition</th>
+<th>Ct(target)</th>
+<th>Ct(reference)</th>
+<th>ΔCt</th>
+<th>ΔΔCt</th>
+<th>2⁻ΔΔCt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Control</td>
+<td>23.0</td>
+<td>19.5</td>
+<td>3.5</td>
+<td>0.0</td>
+<td>1.00</td>
+</tr>
+<tr class="even">
+<td>Treated</td>
+<td>26.0</td>
+<td>20.0</td>
+<td>6.0</td>
+<td>2.5</td>
+<td>0.18</td>
+</tr>
+</tbody>
+</table>
+<p>→ Interpretation: <strong>~5.6-fold downregulation</strong> of the target gene in treated samples.</p>
+</section>
+<section id="example-3" class="slide level2">
+<h2>Example 3</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Condition</th>
+<th>Ct(target)</th>
+<th>Ct(reference)</th>
+<th>ΔCt</th>
+<th>ΔΔCt</th>
+<th>2⁻ΔΔCt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Control</td>
+<td>28.0</td>
+<td>21.0</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>Treated</td>
+<td>26.5</td>
+<td>20.5</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example-3-1" class="slide level2">
+<h2>Example 3</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Condition</th>
+<th>Ct(target)</th>
+<th>Ct(reference)</th>
+<th>ΔCt</th>
+<th>ΔΔCt</th>
+<th>2⁻ΔΔCt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Control</td>
+<td>28.0</td>
+<td>21.0</td>
+<td>7.0</td>
+<td>0.0</td>
+<td>1.00</td>
+</tr>
+<tr class="even">
+<td>Treated</td>
+<td>26.5</td>
+<td>20.5</td>
+<td>6.0</td>
+<td>-1.0</td>
+<td>2.00</td>
+</tr>
+</tbody>
+</table>
+<p>→ Interpretation: <strong>~2-fold upregulation</strong> of the target gene in treated samples.</p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="checking-some-cases" class="title-slide slide level1 center">
+<h1>Checking some cases</h1>
+
 </section>
 <section id="case-1-alves-et-al-2021" class="slide level2">
 <h2>Case 1 (Alves et al, 2021)</h2>
@@ -604,7 +812,7 @@
 <h2>Break</h2>
 <p>☕ 15 min coffee break<br>
 Stretch, chat, and prepare for the next section:<br>
-<strong>Introduction to RNA-seq experiments.</strong></p>
+<strong>Application &amp; Case Study</strong></p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

@@ -14,7 +14,7 @@ format:
 ### What is this lecture about?
 
 - Understand the conceptual **foundations of transcriptomics**
-- Learn how to design and interpret RNA-seq experiments
+- Learn how to design and interpret transcriptomics experiments
 - Develop critical thinking through **case-based discussion**
 - Apply learned approaches to solve research problems
 
@@ -37,8 +37,8 @@ format:
 
 | Session | Focus | Format |
 |:--|:--|:--|
-| Morning | Concepts & Theory | Mini-lectures + discussion |
-| Afternoon | Application & Case Study | Group activity + presentation |
+| Afternoon #1 | Concepts & Theory | Mini-lectures + discussion |
+| Afternoon #2 | Application & Case Study | Research (1h) + Individual pitches (5 min) |
 
 ---
 
@@ -47,8 +47,8 @@ format:
 Each day you will:
 
 1. Learn the theory and logic behind a specific analysis step  
-2. Work on **a real research scenario** inspired by published studies  
-3. Prepare a short presentation proposing **your analytical strategy**  
+2. Work on **a real research scenario** inspired by published studies
+3. Prepare a short presentation exploring **some analytical strategy**
 
 🎯 *Goal:* Learn by applying — not just by coding.
 
@@ -61,6 +61,20 @@ Each day you will:
 3. **Day 3:** RNAseq: Short-Read Revolution;
 4. **Day 4:** Long-Read Transcriptomics;
 5. **Day 5:** Single-cell and Spatial Transcriptomics;
+
+---
+
+## Today's Goals
+
+By the end of today, you should be able to:
+
+- Define transcriptomics and describe its scope  
+- Identify common types of transcriptomics techniques
+- Know how the rest of the lecture will unfold
+
+---
+
+# Brief Introduction to Transcriptomics
 
 ---
 
@@ -147,27 +161,7 @@ Essential for understanding:
 
 ---
 
-## Today's Goals
-
-By the end of today, you should be able to:
-
-- Define transcriptomics and describe its scope  
-- Identify common types of RNA-seq studies  
-- Understand the flow of data from sequencing to biological insight  
-- Know how the rest of the lecture will unfold
-
----
-
-## Discussion Prompt
-
-💬 **Question:**  
-> “If you had to explain transcriptomics to a high school student, how would you do it?”
-
-Take 3 minutes with your group, then share your best analogy.
-
----
-
-# 2. Historical Evolution of RNA Quantification
+# Quantitative RNA methods
 
 ## Historical Evolution Overview
 
@@ -195,7 +189,7 @@ A progression toward greater sensitivity, precision, and throughput
 
 ---
 
-## RT-PCR (1980s)
+## Reverse Transcription PCR / RT-PCR (1980s) 
 
 **Principle**: RNA → cDNA → PCR amplification → endpoint detection
 
@@ -203,7 +197,7 @@ A progression toward greater sensitivity, precision, and throughput
 
 ---
 
-## RT-PCR (1980s) 
+## Reverse Transcription PCR / RT-PCR (1980s) 
 
 ![](https://www.integra-biosciences.com/sites/default/files/styles/large/public/images/rt-pcr-workflow.jpg?itok=MFSzOajA){fig-align="center" width="50%"}
 
@@ -212,14 +206,14 @@ A progression toward greater sensitivity, precision, and throughput
 
 ---
 
-## Real-Time PCR and Karry Mullis
+## Real-Time PCR and Karry Mullis (1983)
 
 ![](https://cdn.sanity.io/images/f1hjpcr4/production/c914aefc63621168387e35cb579aec13aac12ca3-700x394.jpg?w=1200&h=675&fit=crop&crop=entropy&q=60){fig-align="center" width="50%"}
 
 
 ---
 
-## RT-qPCR / Real-Time PCR (1990s-present)
+## RT-qPCR / Real-Time PCR (1996s-present)
 
 <br>
 <br>
@@ -232,7 +226,7 @@ A progression toward greater sensitivity, precision, and throughput
 
 ---
 
-## RT-qPCR / Real-Time PCR (1990s-present)
+## RT-qPCR / Real-Time PCR (1996s-present)
 
 ```{r comparison-table}
 
@@ -252,11 +246,110 @@ kable(methods_data)
 
 ---
 
-## RT-qPCR / Real-Time PCR (1990s-present)
+## How RT-qPCR Works
 
-**Principle**: Monitor PCR in real-time using fluorescence. Track **while** amplification occurs (Ct value), not endpoint amount.
+<br>
 
-**Advances**: qPCR revolutionized RNA quantification by achieving true quantitative precision through monitoring the exponential phase of amplification. The method boasts a wide dynamic range spanning 7-9 orders of magnitude and exceptional sensitivity capable of single-copy detection. Automation in 96 or 384-well formats dramatically increased throughput, while the closed-tube system reduced contamination risks that plagued earlier gel-based approaches.
+<div style="display: flex; justify-content: center; align-items: center; height: 80vh;">
+  <iframe 
+    src="https://www.youtube.com/embed/TAnx9963SRw"
+    title="RT-qPCR explained"
+    style="width: 80vw; height: 45vw; max-width: 960px; max-height: 540px; border: none;"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+---
+
+## 2⁻ΔΔCt method
+
+The 2⁻ΔΔCt method is a simple way to calculate relative changes in gene expression between two samples (e.g., treated vs. control, KO vs. WT) using RT-qPCR. Our "bioinformatics" small approach to get differences in control vs. case setup.
+
+---
+
+## Formula
+
+$$
+\text{Fold change} \;=\; 2^{-\Delta\Delta C_t}
+$$
+
+where
+
+$$
+\Delta C_t \;=\; C_{t,\text{target}} - C_{t,\text{reference}}
+\qquad\text{and}\qquad
+\Delta\Delta C_t \;=\; \Delta C_{t,\text{sample}} - \Delta C_{t,\text{control}}.
+$$
+
+---
+
+## Step-by-step logic
+
+1. Normalize the target gene to a reference (housekeeping) gene:  
+   $$\Delta C_t = C_t(\text{target}) - C_t(\text{reference}).$$
+
+2. Compare the normalized values between conditions:  
+   $$\Delta\Delta C_t = \Delta C_t(\text{treatment}) - \Delta C_t(\text{control}).$$
+
+3. Compute relative expression (fold change):  
+   $$\text{Relative expression} = 2^{-\Delta\Delta C_t}.$$
+
+---
+
+## Example
+
+| Condition | Ct(target) | Ct(reference) | ΔCt | ΔΔCt | 2⁻ΔΔCt |
+|------------|-------------|----------------|------|-------|--------|
+| Control    | 25.0        | 20.0           | 5.0  | 0.0   | 1.00   |
+| Treated    | 22.0        | 20.5           | 1.5  | -3.5  | 11.31  |
+
+→ Interpretation: **~11-fold upregulation** of the target gene in treated samples.
+
+---
+
+## Example 2
+
+| Condition | Ct(target) | Ct(reference) | ΔCt | ΔΔCt | 2⁻ΔΔCt |
+|------------|-------------|----------------|------|-------|--------|
+| Control    | 23.0        | 19.5           | X  | X   | X   |
+| Treated    | 26.0        | 20.0           | X  | X   | X   |
+
+---
+
+## Example 2
+
+| Condition | Ct(target) | Ct(reference) | ΔCt | ΔΔCt | 2⁻ΔΔCt |
+|------------|-------------|----------------|------|-------|--------|
+| Control    | 23.0        | 19.5           | 3.5  | 0.0   | 1.00   |
+| Treated    | 26.0        | 20.0           | 6.0  | 2.5   | 0.18   |
+
+→ Interpretation: **~5.6-fold downregulation** of the target gene in treated samples.
+
+
+---
+
+## Example 3
+
+| Condition | Ct(target) | Ct(reference) | ΔCt | ΔΔCt | 2⁻ΔΔCt |
+|------------|-------------|----------------|------|-------|--------|
+| Control    | 28.0        | 21.0           | X  | X  | X   |
+| Treated    | 26.5        | 20.5           | X  | X  | X   |
+
+---
+
+## Example 3
+
+| Condition | Ct(target) | Ct(reference) | ΔCt | ΔΔCt | 2⁻ΔΔCt |
+|------------|-------------|----------------|------|-------|--------|
+| Control    | 28.0        | 21.0           | 7.0  | 0.0   | 1.00   |
+| Treated    | 26.5        | 20.5           | 6.0  | -1.0  | 2.00   |
+
+→ Interpretation: **~2-fold upregulation** of the target gene in treated samples.
+
+---
+
+# Checking some cases
 
 ---
 
@@ -310,4 +403,4 @@ ovarian cancer. <...> the ovarian cancer cell line, A2780, through lentiviral tr
 
 ☕ 15 min coffee break  
 Stretch, chat, and prepare for the next section:  
-**Introduction to RNA-seq experiments.**
+**Application & Case Study**
