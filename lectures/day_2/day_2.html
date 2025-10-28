@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="day_1_files/libs/clipboard/clipboard.min.js"></script>
-<script src="day_1_files/libs/quarto-html/tabby.min.js"></script>
-<script src="day_1_files/libs/quarto-html/popper.min.js"></script>
-<script src="day_1_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="day_1_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="day_1_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="day_1_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="day_1_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="day_2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="day_2_files/libs/quarto-html/tabby.min.js"></script>
+<script src="day_2_files/libs/quarto-html/popper.min.js"></script>
+<script src="day_2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="day_2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="day_2_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="day_2_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="day_2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.550">
 
-  <title>Day 1 – Introduction to Transcriptomics</title>
+  <title>Day 2 - Microarray method</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="day_1_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="day_1_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="day_2_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="day_2_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -29,11 +29,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="day_1_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="day_1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="day_1_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="day_1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="day_1_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="day_2_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="day_2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="day_2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="day_2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="day_2_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -325,252 +325,22 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Day 1 – Introduction to Transcriptomics</h1>
-  <p class="subtitle">Quantitative RNA methods: Principles and Practice</p>
+  <h1 class="title">Day 2 - Microarray method</h1>
+  <p class="subtitle">First Genome-Wide View</p>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="welcome-overview" class="slide level2">
-<h2>Welcome &amp; Overview</h2>
-<h3 id="what-is-this-lecture-about">What is this lecture about?</h3>
-<ul>
-<li class="fragment">Understand the conceptual <strong>foundations of transcriptomics</strong></li>
-<li class="fragment">Learn how to design and interpret transcriptomics experiments</li>
-<li class="fragment">Develop critical thinking through <strong>case-based discussion</strong></li>
-<li class="fragment">Apply learned approaches to solve research problems</li>
-</ul>
-</section>
-<section id="welcome-overview-1" class="slide level2">
-<h2>Welcome &amp; Overview</h2>
-<h3 id="what-is-this-lecture-not-about">What is this lecture NOT about?</h3>
-<ul>
-<li class="fragment">Coding lots of downstream analysis.</li>
-<li class="fragment">Take-home exercises.</li>
-<li class="fragment">Long assays to deliver in weeks.</li>
-<li class="fragment">😂 Coding at all.</li>
-</ul>
-</section>
-<section id="course-flow-structure" class="slide level2">
-<h2>Course Flow &amp; Structure</h2>
-<h3 id="daily-plan-6-hours-total">Daily Plan (6 hours total)</h3>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Session</th>
-<th style="text-align: left;">Focus</th>
-<th style="text-align: left;">Format</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Afternoon #1</td>
-<td style="text-align: left;">Concepts &amp; Theory</td>
-<td style="text-align: left;">Mini-lectures + discussion</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Afternoon #2</td>
-<td style="text-align: left;">Application &amp; Case Study</td>
-<td style="text-align: left;">Research (1h) + Individual pitches (5 min)</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="daily-activities-explained" class="slide level2">
-<h2>Daily Activities Explained</h2>
-<p>Each day you will:</p>
-<ol type="1">
-<li class="fragment">Learn the theory and logic behind a specific analysis step<br>
-</li>
-<li class="fragment">Work on <strong>a real research scenario</strong> inspired by published studies</li>
-<li class="fragment">Prepare a short presentation exploring <strong>some analytical strategy</strong></li>
-</ol>
-<p>🎯 <em>Goal:</em> Learn by applying — not just by coding.</p>
-</section>
 <section id="course-topics" class="slide level2">
 <h2>Course Topics</h2>
 <ol type="1">
 <li class="fragment"><strong>Day 1:</strong> Brief Introduction + Quantitative RNA methods;</li>
-<li class="fragment"><strong>Day 2:</strong> Microarray: First Genome-Wide View;</li>
-<li class="fragment"><strong>Day 3:</strong> RNAseq: Short-Read Revolution;</li>
-<li class="fragment"><strong>Day 4:</strong> Long-Read Transcriptomics;</li>
-<li class="fragment"><strong>Day 5:</strong> Single-cell and Spatial Transcriptomics;</li>
+<li class="fragment"><strong>Day 2: Microarray: First Genome-Wide View;</strong></li>
 </ol>
 </section>
-<section id="todays-goals" class="slide level2">
-<h2>Today’s Goals</h2>
-<p>By the end of today, you should be able to:</p>
-<ul>
-<li class="fragment">Define transcriptomics and describe its scope<br>
-</li>
-<li class="fragment">Identify common types of pre-NGS transcriptomics techniques</li>
-<li class="fragment">See cases in Northern-blot, RT-PCR and RT-qPCR</li>
-</ul>
-</section>
-<section class="slide level2">
-
-</section>
-<section>
-<section id="brief-introduction-to-transcriptomics" class="title-slide slide level1 center">
-<h1>Brief Introduction to Transcriptomics</h1>
-
-</section>
-<section id="the-central-dogma-of-biology" class="slide level2">
-<h2>The Central Dogma of Biology</h2>
-
-<img data-src="https://cdn.kastatic.org/ka-perseus-images/2b597889d05bc601803a3b4d9ec5ccd5e7b8d3af.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><p>💡 <em>Transcriptomics focuses on the RNA step - the bridge between genetic code and cellular action</em></p>
-</section>
-<section id="types-of-rna" class="slide level2">
-<h2>Types of RNA</h2>
-
-<img data-src="https://www.researchgate.net/publication/377726968/figure/fig1/AS:11431281225578697@1708829746771/Classification-of-RNA-molecule.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
-<section id="what-is-transcriptomics" class="slide level2">
-<h2>What is Transcriptomics?</h2>
-<ul>
-<li class="fragment">The <strong>study of the complete set of RNA transcripts</strong> produced by a genome<br>
-</li>
-<li class="fragment">Helps reveal:
-<ul>
-<li class="fragment">Which genes are active</li>
-<li class="fragment">How gene expression changes in different conditions</li>
-<li class="fragment">Insights into disease mechanisms</li>
-</ul></li>
-</ul>
-<p>🧬 <em>Think of transcriptomics as taking a snapshot of all active messages inside a cell.</em></p>
-</section>
-<section id="defining-the-transcriptome" class="slide level2">
-<h2>Defining the Transcriptome</h2>
-<h3 id="why-study-it">Why study it?</h3>
-<p>Essential for understanding:</p>
-<ul>
-<li class="fragment">Functional elements of the genome<br>
-</li>
-<li class="fragment">Molecular constituents of cells and tissues</li>
-<li class="fragment">Development and disease mechanisms</li>
-</ul>
-</section>
-<section id="key-aims-of-transcriptomics" class="slide level2">
-<h2>Key Aims of Transcriptomics</h2>
-<ol type="1">
-<li class="fragment"><strong>Catalogue transcripts</strong>
-<ul>
-<li class="fragment">mRNAs, non-coding RNAs, small RNAs</li>
-</ul></li>
-<li class="fragment"><strong>Determine gene structure</strong>
-<ul>
-<li class="fragment">Start/end sites, splicing patterns, modifications</li>
-</ul></li>
-<li class="fragment"><strong>Quantify expression changes</strong>
-<ul>
-<li class="fragment">During development and different conditions</li>
-</ul></li>
-</ol>
-</section>
-<section id="why-transcriptomics-matters" class="slide level2">
-<h2>Why Transcriptomics Matters</h2>
-<ul>
-<li class="fragment">Understanding <strong>cell identity</strong> and <strong>response to stimuli</strong></li>
-<li class="fragment">Applications in:
-<ul>
-<li class="fragment">Disease diagnosis and progression</li>
-<li class="fragment">Drug discovery</li>
-<li class="fragment">Functional genomics</li>
-</ul></li>
-</ul>
-</section>
-<section id="the-growing-field-of-transcriptomics" class="slide level2">
-<h2>The Growing Field of Transcriptomics</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<h3 id="explosive-growth-in-the-field">Explosive Growth in the Field</h3>
-<p><small> - <strong>Exponential increase</strong> in transcriptomics studies since 2000s - <strong>Technological advances</strong> driving accessibility and affordability<br>
-- <strong>Expanding applications</strong> across diverse biological systems - <strong>Growing data repositories</strong> enabling meta-analyses and comparisons</small></p><small>
-</small><p><small><em>Source: Gemini AI trends prediction</em> </small></p>
-</div><div class="column" style="width:60%;">
-<p><img data-src="figs/figure1_trends.png" style="width:100.0%"></p>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="quantitative-rna-methods" class="title-slide slide level1 center">
-<h1>Quantitative RNA methods</h1>
-
-</section>
-<section id="historical-evolution-overview" class="slide level2">
-<h2>Historical Evolution Overview</h2>
-<p><br> <br> <br></p>
-<h3 id="from-northern-blot-rt-pcr-qpcr"><strong>From Northern blot → RT-PCR → qPCR</strong></h3>
-<p>A progression toward greater sensitivity, precision, and throughput</p>
-</section>
-<section id="northern-blot-1977" class="slide level2">
-<h2>Northern Blot (1977)</h2>
-<p><strong>Principle</strong>: RNA separated by gel electrophoresis, transferred to membrane, detected with labeled probes</p>
-<p><strong>Advantages</strong>: Northern blotting provided direct RNA visualization with valuable size information, enabling researchers to detect novel isoforms of the same gene. <strong>Limitations</strong>: Despite its pioneering role, the method suffered from low sensitivity, requiring microgram quantities of RNA. It was also limited to analyzing one gene at a time, making it a low-throughput approach. The labor-intensive protocol could take days per experiment.</p>
-</section>
-<section id="northern-blot-1977-1" class="slide level2">
-<h2>Northern Blot (1977)</h2>
-
-<img data-src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Northern_blot_diagram.png" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
-<section id="labeled-probes" class="slide level2">
-<h2>Labeled Probes</h2>
-<p><strong>Definition:</strong> Labeled probes are short, single-stranded DNA or RNA sequences designed to hybridize to a specific RNA target immobilized on a membrane after electrophoresis.</p>
-<p><strong>Design:</strong> Probes are complementary to a specific exon, gene, or splice variant, enabling discrimination between different isoforms.</p>
-</section>
-<section id="pancreatic-cancer-streit-2008" class="slide level2">
-<h2>Pancreatic cancer (Streit, 2008)</h2>
-
-<img data-src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fnprot.2008.216/MediaObjects/41596_2009_Article_BFnprot2008216_Fig4_HTML.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"><p><small> <strong>Figure 4:</strong> Northern blot analysis of EGFR, EGF and TGF-α in the normal pancreas and pancreatic cancer. </small></p>
-</section>
-<section id="nb-in-micrornas-koscianska-2011" class="slide level2">
-<h2>NB in microRNAs (Koscianska 2011)</h2>
-
-<img data-src="https://media.springernature.com/full/springer-static/image/art%3A10.1186%2F1471-2199-12-14/MediaObjects/12867_2011_Article_570_Fig2_HTML.jpg?as=webp" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><p><small> <strong>Figure 2.</strong> Detection of heterogeneous miRNAs and pre-miRNAs. Examples of heterogeneous miRNAs and pre-miRNAs overexpressed in HEK 293T cells and detected with single-nucleotide resolution, as shown in the figure. </small></p>
-</section>
-<section id="pcr-and-karry-mullis-1980s" class="slide level2">
-<h2>PCR and Karry Mullis (1980s)</h2>
-
-<img data-src="https://cdn.sanity.io/images/f1hjpcr4/production/c914aefc63621168387e35cb579aec13aac12ca3-700x394.jpg?w=1200&amp;h=675&amp;fit=crop&amp;crop=entropy&amp;q=60" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
-<section id="reverse-transcription-pcr-rt-pcr-1980s" class="slide level2">
-<h2>Reverse Transcription PCR / RT-PCR (1980s)</h2>
-<p><strong>Principle</strong>: RNA → cDNA → PCR amplification → endpoint detection</p>
-<p><strong>Advances</strong>: RT-PCR represented a significant leap forward with much higher sensitivity, requiring only nanogram quantities of RNA. The method was considerably faster, taking hours instead of days, and offered greater specificity through its primer-based approach, allowing targeted amplification of genes of interest. <strong>Limitations</strong>: However, RT-PCR relied on endpoint detection at the plateau phase of amplification, making it only semi-quantitative. Still depended on gel-based detection.</p>
-</section>
-<section id="reverse-transcription-pcr-rt-pcr" class="slide level2">
-<h2>Reverse Transcription PCR / RT-PCR</h2>
-
-<img data-src="https://www.integra-biosciences.com/sites/default/files/styles/large/public/images/rt-pcr-workflow.jpg?itok=MFSzOajA" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"><p><strong>Method exemplification:</strong> Integra biosciences image.</p>
-</section>
-<section id="arginase-activity-in-hbc-singh-2000" class="slide level2">
-<h2>Arginase Activity in hBC (Singh 2000)</h2>
-
-<img data-src="https://www.researchgate.net/publication/12453138/figure/fig3/AS:667097499713539@1536059846290/RT-PCR-for-various-human-breast-cancer-cell-lines-using-gene-specific-PCR-primers-Total.ppm" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><p><small> <strong>Fig. 3.</strong> RT-PCR for various human breast cancer cell lines using gene-specific PCR primers. &lt;…&gt; DNA fragment sizes generated by RT-PCR (in bp) forAI(Arg I), A II (Arg II), eNOS, iNOS, and GAPDH are indicated at left of each panel. Molecular weight markers (fx174/HaeIII) are in the right-hand lane of each panel. Data presented are from a single experiment that is representative of three separate experiments. </small></p>
-</section>
-<section id="pain-genes-mitchell-2012" class="slide level2">
-<h2>Pain genes (Mitchell 2012)</h2>
-
-<img data-src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/87d8/3417750/cc249a1906e4/nihms-385786-f0003.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><p><small> <strong>Figure 3.</strong> Gel-based RT-PCR analysis to determine expression profile of a gene in different tissues. After subtraction hybridization analysis (DRG-sciatic nerve genes), we identified numerous clones that were enriched in the DRG as compared to sciatic nerve. Clone A153 (recently identified as the phosphoinositide-binding protein, Pirt, (14) was tested for expression in numerous tissues. </small></p>
-</section>
-<section id="rt-qpcr-real-time-pcr" class="slide level2">
-<h2>RT-qPCR / Real-Time PCR</h2>
-<p><br> <br></p>
-<p><strong>Principle</strong>: Monitor PCR in real-time using fluorescence. Track <strong>while</strong> amplification occurs (Ct value), not endpoint amount.</p>
-<p><small> <strong>Advances</strong>: qPCR revolutionized RNA quantification by achieving true quantitative precision through monitoring the exponential phase of amplification. The method boasts a wide dynamic range spanning 7-9 orders of magnitude and exceptional sensitivity capable of single-copy detection. Automation in 96 or 384-well formats dramatically increased throughput, while the closed-tube system reduced contamination risks that plagued earlier gel-based approaches. </small></p>
-</section>
-<section id="rt-qpcr-real-time-pcr-1" class="slide level2">
-<h2>RT-qPCR / Real-Time PCR</h2>
-
-<img data-src="https://i0.wp.com/microbeonline.com/wp-content/uploads/2016/07/Polymerase_chain_reaction.svg_.png?resize=768%2C401&amp;ssl=1" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
-<section id="rt-qpcr-real-time-pcr-2" class="slide level2">
-<h2>RT-qPCR / Real-Time PCR</h2>
+<section id="yesterday-summary" class="slide level2">
+<h2>Yesterday summary</h2>
 <div class="cell">
 <div class="cell-output-display">
 <table>
@@ -610,324 +380,273 @@
 </div>
 </div>
 </section>
-<section id="comparison-northern-blot-rt-pcr-and-qpcr" class="slide level2">
-<h2>Comparison: Northern blot, RT-PCR, and qPCR</h2>
-<div class="cell">
-<div class="cell-output-display">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Technique</th>
-<th style="text-align: center;">Quantitative</th>
-<th style="text-align: center;">Transcript_size</th>
-<th style="text-align: center;">ncRNAs</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Northern blot</td>
-<td style="text-align: center;">Semi</td>
-<td style="text-align: center;">✅ Yes (Full)</td>
-<td style="text-align: center;">Best</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">RT-PCR</td>
-<td style="text-align: center;">Semi</td>
-<td style="text-align: center;">✅ Yes</td>
-<td style="text-align: center;">Possible</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">qPCR</td>
-<td style="text-align: center;">Yes</td>
-<td style="text-align: center;">❌ No</td>
-<td style="text-align: center;">Possible</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="how-rt-qpcr-works-and-history" class="slide level2">
-<h2>How RT-qPCR Works and History</h2>
-<div style="display: flex; justify-content: center; align-items: center; height: 80vh;">
-<p><iframe src="https://www.youtube.com/embed/TAnx9963SRw" title="RT-qPCR explained" style="width: 80vw; height: 45vw; max-width: 960px; max-height: 540px; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""> </iframe></p>
-</div>
-</section>
-<section id="qpcr---amplification-plot" class="slide level2">
-<h2>qPCR - Amplification plot</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://toptipbio.com/wp-content/uploads/2018/03/qPCR-amplification-plot-annotated-696x479.jpg" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
-</figure>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://toptipbio.com/wp-content/uploads/2018/03/qPCR-amplification-plot-with-threshold-696x479.jpg" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><small> The cycle threshold (Ct) value of a reaction is defined as the cycle number when the fluorescence of a PCR product can be detected above the background signal. In order to calculate the Ct value, it is necessary to draw a horizontal line (threshold) on the amplification plot. The placement of this line is often determined by the qPCR software, however, users can manually place this line. Ideally, the threshold is placed at the point when the reaction is in the exponential phase, therefore it will not be confused with the background signal. </small></p>
-</section>
-<section id="ct-vs.-cq-values" class="slide level2">
-<h2>Ct vs.&nbsp;Cq values</h2>
-<p>Cq (Quantification cycle) was later proposed as a standardized term by the MIQE guidelines (Minimum Information for Publication of Quantitative Real-Time PCR Experiments). The idea was to reduce confusion — different instruments used “Ct,” “Cp,” “Crossing point,” etc. Ct ≈ Cq — they mean the same thing (the cycle at which amplification is first detected). The term Cq is just the recommended one for reporting data in publications, because it’s more general and standardized.</p>
-</section>
-<section id="δδct-method" class="slide level2">
-<h2>2⁻ΔΔCt method</h2>
-<p>The 2⁻ΔΔCt method is a simple way to calculate relative changes in gene expression between two samples (e.g., treated vs.&nbsp;control, KO vs.&nbsp;WT) using RT-qPCR. Our “bioinformatics” small approach to get differences in control vs.&nbsp;case setup.</p>
-</section>
-<section id="housekeeping-genes" class="slide level2">
-<h2>Housekeeping genes</h2>
-<p>Housekeeping genes are essential for the basic and constant functions required for a cell’s survival, such as metabolism and growth. They are expected to be expressed in all cells of an organism, regardless of cell type or developmental stage, though their expression levels can vary. This makes them <strong>valuable as reference genes in experiments like qPCR</strong> to normalize gene expression levels between different samples.</p>
-</section>
-<section id="housekeeping-genes-1" class="slide level2">
-<h2>Housekeeping genes</h2>
-<p><strong>Actin, beta (ACTB):</strong> A common choice for many experiments, but not always stable. <strong>Glyceraldehyde-3-phosphate dehydrogenase (GAPDH):</strong> Another widely used gene, though stability can vary depending on conditions. <strong>18S ribosomal RNA (18S rRNA):</strong> Frequently used, especially for in vitro hypoxia experiments. <strong>Ubiquitin C (UBC):</strong> Often used in studies, but its stability depends on the specific experimental context. <strong>Hypoxanthine guanine phosphoribosyl transferase 1 (HPRT1):</strong> Used in some studies, though its expression can be unstable under certain conditions.</p>
-</section>
-<section id="formula" class="slide level2">
-<h2>Formula</h2>
-<p><span class="math display">\[
-\text{Fold change} \;=\; 2^{-\Delta\Delta C_t}
-\]</span></p>
-<p>where</p>
-<p><span class="math display">\[
-\Delta C_t \;=\; C_{t,\text{target}} - C_{t,\text{reference}}
-\qquad\text{and}\qquad
-\]</span> <span class="math display">\[
-\Delta\Delta C_t \;=\; \Delta C_{t,\text{sample}} - \Delta C_{t,\text{control}}.
-\]</span></p>
-</section>
-<section id="step-by-step-logic" class="slide level2">
-<h2>Step-by-step logic</h2>
+<section id="todays-goals" class="slide level2">
+<h2>Today’s Goals</h2>
+<p>By the end of today, you should be able to:</p>
 <ol type="1">
-<li class="fragment"><p>Normalize the target gene to a reference (housekeeping) gene:<br>
-<span class="math display">\[\Delta C_t = C_t(\text{target}) - C_t(\text{reference}).\]</span></p></li>
-<li class="fragment"><p>Compare the normalized values between conditions:<br>
-<span class="math display">\[\Delta\Delta C_t = \Delta C_t(\text{treatment}) - \Delta C_t(\text{control}).\]</span></p></li>
-<li class="fragment"><p>Compute relative expression (fold change):<br>
-<span class="math display">\[\text{Relative expression} = 2^{-\Delta\Delta C_t}.\]</span></p></li>
+<li class="fragment"><strong>Principles of microarray technology</strong>
+<ul>
+<li class="fragment">Probes, hybridization, fluorescence detection.</li>
+<li class="fragment">One-color vs two-color systems</li>
+</ul></li>
+<li class="fragment"><strong>Normalization methods (RMA, quantile)</strong><br>
+</li>
+<li class="fragment"><strong>Statistical analysis concepts</strong>
+<ul>
+<li class="fragment">Fold-change, p-value, multiple testing.<br>
+</li>
+<li class="fragment">Differential expression and others.</li>
+</ul></li>
 </ol>
 </section>
-<section id="example" class="slide level2">
-<h2>Example</h2>
-<table>
-<thead>
-<tr class="header">
-<th>Condition</th>
-<th>Ct(target)</th>
-<th>Ct(reference)</th>
-<th>ΔCt</th>
-<th>ΔΔCt</th>
-<th>2⁻ΔΔCt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Control</td>
-<td>25.0</td>
-<td>20.0</td>
-<td>5.0</td>
-<td>0.0</td>
-<td>1.00</td>
-</tr>
-<tr class="even">
-<td>Treated</td>
-<td>22.0</td>
-<td>20.5</td>
-<td>1.5</td>
-<td>-3.5</td>
-<td>11.31</td>
-</tr>
-</tbody>
-</table>
-<p>→ Interpretation: <strong>~11-fold upregulation</strong> of the target gene in treated samples.</p>
+<section class="slide level2">
+
 </section>
-<section id="example-2" class="slide level2">
-<h2>Example 2</h2>
-<table>
-<thead>
-<tr class="header">
-<th>Condition</th>
-<th>Ct(target)</th>
-<th>Ct(reference)</th>
-<th>ΔCt</th>
-<th>ΔΔCt</th>
-<th>2⁻ΔΔCt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Control</td>
-<td>23.0</td>
-<td>19.5</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-</tr>
-<tr class="even">
-<td>Treated</td>
-<td>26.0</td>
-<td>20.0</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-</tr>
-</tbody>
-</table>
+<section>
+<section id="principles-of-microarray" class="title-slide slide level1 center">
+<h1>Principles of microarray</h1>
+
 </section>
-<section id="example-2-1" class="slide level2">
-<h2>Example 2</h2>
-<table>
-<thead>
-<tr class="header">
-<th>Condition</th>
-<th>Ct(target)</th>
-<th>Ct(reference)</th>
-<th>ΔCt</th>
-<th>ΔΔCt</th>
-<th>2⁻ΔΔCt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Control</td>
-<td>23.0</td>
-<td>19.5</td>
-<td>3.5</td>
-<td>0.0</td>
-<td>1.00</td>
-</tr>
-<tr class="even">
-<td>Treated</td>
-<td>26.0</td>
-<td>20.0</td>
-<td>6.0</td>
-<td>2.5</td>
-<td>0.18</td>
-</tr>
-</tbody>
-</table>
-<p>→ Interpretation: <strong>~5.6-fold downregulation</strong> of the target gene in treated samples.</p>
+<section id="principles-of-microarray-technology" class="slide level2">
+<h2>Principles of Microarray Technology</h2>
+<p>Microarrays allow <strong>simultaneous measurement of thousands of RNA transcripts</strong> by hybridizing labeled cDNA to probes fixed on a solid surface.</p>
+<ul>
+<li class="fragment"><strong>Probes:</strong> Short DNA sequences (~25–70 bp) immobilized on a glass slide or chip.</li>
+<li class="fragment"><strong>Hybridization:</strong> Labeled sample cDNA binds to complementary probes.</li>
+<li class="fragment"><strong>Detection:</strong> Fluorescent intensity at each spot corresponds to transcript abundance.</li>
+</ul>
+<blockquote>
+<p>🧠 Conceptually: Each spot = one gene; brightness = expression level.</p>
+</blockquote>
 </section>
-<section id="example-3" class="slide level2">
-<h2>Example 3</h2>
-<table>
-<thead>
-<tr class="header">
-<th>Condition</th>
-<th>Ct(target)</th>
-<th>Ct(reference)</th>
-<th>ΔCt</th>
-<th>ΔΔCt</th>
-<th>2⁻ΔΔCt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Control</td>
-<td>28.0</td>
-<td>21.0</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-</tr>
-<tr class="even">
-<td>Treated</td>
-<td>26.5</td>
-<td>20.5</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-</tr>
-</tbody>
-</table>
+<section id="defining-probes-again" class="slide level2">
+<h2>Defining probes (again)</h2>
+
+<img data-src="https://www.researchgate.net/publication/280580151/figure/fig1/AS:651158213361673@1532259624752/DNA-microarray-with-capture-probes-The-microarray-is-made-using-photolithography-or.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><blockquote>
+<p>In the context of microarray, a probe is a short, single-stranded DNA sequence immobilized on the array surface that specifically hybridizes to a complementary target RNA (or cDNA) sequence, enabling the detection and quantification of gene expression levels.</p>
+</blockquote>
 </section>
-<section id="example-3-1" class="slide level2">
-<h2>Example 3</h2>
+<section id="microarray-workflow-overview" class="slide level2">
+<h2>Microarray Workflow Overview</h2>
+<ol type="1">
+<li class="fragment"><strong>RNA extraction</strong> from control and test samples<br>
+</li>
+<li class="fragment"><strong>Reverse transcription</strong> to cDNA with fluorescent labeling<br>
+</li>
+<li class="fragment"><strong>Hybridization</strong> of cDNA to complementary probes on chip<br>
+</li>
+<li class="fragment"><strong>Washing</strong> to remove unbound cDNA<br>
+</li>
+<li class="fragment"><strong>Scanning</strong> to measure fluorescence<br>
+</li>
+<li class="fragment"><strong>Normalization and analysis</strong> of intensity data</li>
+</ol>
+</section>
+<section id="microarray-workflow-overview-1" class="slide level2">
+<h2>Microarray Workflow Overview</h2>
+
+<img data-src="https://microbenotes.com/wp-content/uploads/2018/09/Steps-Involved-in-cDNA-based-Microarray.jpeg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="microarray-workflow-overview-2" class="slide level2">
+<h2>Microarray Workflow Overview</h2>
+<div style="display: flex; justify-content: center; align-items: center; height: 80vh;">
+<p><iframe src="https://www.youtube.com/embed/0ATUjAxNf6U" title="Microarray technology" style="width: 80vw; height: 45vw; max-width: 960px; max-height: 540px; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""> </iframe></p>
+</div>
+</section>
+<section id="one-or-two-color-arrays" class="slide level2">
+<h2>One or two color arrays?</h2>
+<p>A major design consideration in a microarray experiment is whether to measure the expression levels from each sample on separate microarrays (one-colour array) or to compare relative expression levels between a pair of samples on a single microarray (two-colour array). The overall performance of one-colour and two-colour arrays is similar.</p>
+<blockquote>
+<p>EBI functional genomics courses</p>
+</blockquote>
+</section>
+<section id="one-or-two-color-arrays-1" class="slide level2">
+<h2>One or two color arrays?</h2>
+
+<img data-src="https://www.ebi.ac.uk/training/online/courses/functional-genomics-ii-common-technologies-and-data-analysis-methods/wp-content/uploads/sites/70/2020/05/Figure11_blue-1024x738.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="one-color-vs-two-color-systems" class="slide level2">
+<h2>One-Color vs Two-Color Systems</h2>
+<h3 id="one-color-single-channel">🟩 One-Color (Single Channel)</h3>
+<ul>
+<li class="fragment">Each sample hybridized to its own array.</li>
+<li class="fragment">Common in <strong>Affymetrix</strong> and <strong>Illumina</strong> platforms.</li>
+<li class="fragment">Signal intensity represents <strong>absolute expression</strong> for one sample.</li>
+</ul>
+<h3 id="two-color-dual-channel">🟥🟩 Two-Color (Dual Channel)</h3>
+<ul>
+<li class="fragment">Two samples hybridized on the <strong>same array</strong>:
+<ul>
+<li class="fragment">Example: Control = Cy3 (green), Treated = Cy5 (red)</li>
+</ul></li>
+<li class="fragment">Measures <strong>relative expression</strong> directly by color ratio.</li>
+</ul>
+</section>
+<section id="comparison-and-trends" class="slide level2">
+<h2>Comparison and trends</h2>
 <table>
+<colgroup>
+<col style="width: 15%">
+<col style="width: 23%">
+<col style="width: 17%">
+<col style="width: 13%">
+<col style="width: 30%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Condition</th>
-<th>Ct(target)</th>
-<th>Ct(reference)</th>
-<th>ΔCt</th>
-<th>ΔΔCt</th>
-<th>2⁻ΔΔCt</th>
+<th>Platform</th>
+<th>Probes</th>
+<th>Typical Design</th>
+<th>Color System</th>
+<th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Control</td>
-<td>28.0</td>
-<td>21.0</td>
-<td>7.0</td>
-<td>0.0</td>
-<td>1.00</td>
+<td><strong>Affymetrix</strong></td>
+<td>Short (25-mer)</td>
+<td>Photolithography</td>
+<td>One-color</td>
+<td>Historical gold standard</td>
 </tr>
 <tr class="even">
-<td>Treated</td>
-<td>26.5</td>
-<td>20.5</td>
-<td>6.0</td>
-<td>-1.0</td>
-<td>2.00</td>
+<td><strong>Agilent</strong></td>
+<td>Long (~60-mer)</td>
+<td>Inkjet synthesis</td>
+<td>Two-color</td>
+<td>Popular for academic studies</td>
+</tr>
+<tr class="odd">
+<td><strong>Illumina</strong></td>
+<td>Bead-based</td>
+<td>BeadArray</td>
+<td>One-color</td>
+<td>High reproducibility</td>
 </tr>
 </tbody>
 </table>
-<p>→ Interpretation: <strong>~2-fold upregulation</strong> of the target gene in treated samples.</p>
 </section>
 <section class="slide level2">
 
 </section></section>
 <section>
-<section id="checking-some-cases" class="title-slide slide level1 center">
-<h1>Checking some cases</h1>
+<section id="normalization" class="title-slide slide level1 center">
+<h1>Normalization</h1>
 
 </section>
-<section id="case-1-alves-et-al-2021" class="slide level2">
-<h2>Case 1 (Alves et al, 2021)</h2>
-
-<img data-src="figs/case1_RT-qPCR.png" style="width:100.0%" class="r-stretch"><p><small> <strong>Fig. 9.</strong> Overexpression of a dominant-negative ZBTB20 protein in cortical progenitors affects astrogliogenesis. (A) Schematic showing dissection of the dorsal telencephalon at E18.5 in control and Zbtb20cKO embryos, followed by RNA extraction, and RT-qPCR for genes encoding ZBTB family members. Violin plots represent fold change expression of each ZBTB family member relative to the controls (2−ΔΔCt). ZBTB gene numbers are listed on the x-axis. Gapdh was used as an endogenous control for all samples. Data represented as quartiles and median values; n=4 mice/group; unpaired t-test </small></p>
+<section id="normalization-method" class="slide level2">
+<h2>Normalization method</h2>
+<p>Normalization is the process of <strong>adjusting microarray data to remove systematic technical variation</strong> that is not related to biological differences. Most known and used method is <strong>RMA Normalization</strong> (Robust Multi-array Average).</p>
 </section>
-<section id="case-2-trujillo-et-al-2021" class="slide level2">
-<h2>Case 2 (Trujillo et al, 2021)</h2>
-
-<img data-src="figs/case2_RT-qPCR.png" class="quarto-figure quarto-figure-center r-stretch" style="width:150.0%"><p><small> <strong>Figure 1.</strong> Human MECP2-KO neurons exhibit alterations in synapse-relevant genes and pathways. <strong>C</strong> RT–qPCR array revealed differential gene expression between control and MECP2-KO 28-day neurons. The P values are calculated based on a Student’s t-test of the replicate 2−ΔΔCt values for each gene in the control group and KO groups (WT83/Q83X cell lines were used; N = 3 clones from each genotype). <strong>D</strong> Overtime quantitative gene expression profile of many of the involved genes relevant to synaptic function (days 14 and 28 post-differentiation; normalized by control NPC expression). </small></p>
+<section id="rma-normalization" class="slide level2">
+<h2>RMA Normalization</h2>
+<p><strong>Purpose:</strong> To correct background noise and make expression values comparable across microarrays.</p>
+<p><strong>Main Steps:</strong></p>
+<ul>
+<li class="fragment">Background correction – adjusts for optical noise and nonspecific signal.</li>
+<li class="fragment">Quantile normalization – forces all arrays to have the same overall distribution. You can possibly use only this as a normalization method.</li>
+<li class="fragment">Summarization – combines probe-level data into one expression value per gene using a median polish model.</li>
+</ul>
 </section>
-<section id="case-3-chen-et-al-2017" class="slide level2">
-<h2>Case 3 (Chen et al, 2017)</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="figs/case3_RT-qPCR.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
-</figure>
-</div>
-</div><div class="column" style="width:40%;">
-<p><small> <strong>Abstract.</strong> MicroRNA‑137 (miR‑137) has been reported to be abnormally expressed in a variety of types of cancer, including ovarian cancer. &lt;…&gt; the ovarian cancer cell line, A2780, through lentiviral transduction, puromycin selection and single‑cell culture. &lt;…&gt; Genome editing was detected in 72% of the clones derived from sgRNA2, 4% from sgRNA3 and 0% from sgRNA1. Of the clones from sgRNA2, 32% contained 1 edited miR‑137 allele and 40% contained 2 edited miR‑137 alleles. <strong>The expression of miR‑137 in clones #2 and #3 could not be detected by reverse transcription‑­quantitative polymerase chain reaction.</strong> </small></p>
-</div>
-</div>
+<section id="rma-normalization-1" class="slide level2">
+<h2>RMA Normalization</h2>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li class="fragment">Reduces array-to-array variability.</li>
+<li class="fragment">Improves reproducibility in downstream differential expression analysis.</li>
+<li class="fragment">Implemented in tools like <strong>affy</strong> and <strong>oligo</strong> (R/Bioconductor).</li>
+</ul>
+</section>
+<section id="quantile-normalization" class="slide level2">
+<h2>Quantile Normalization</h2>
+
+<img data-src="https://www.researchgate.net/profile/Saroj-Mohapatra/publication/47371361/figure/fig1/AS:306044065599492@1449977999233/Quantile-normalization-imposes-the-same-empirical-distribution-of-intensities-on-each.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="statistical-analysis" class="title-slide slide level1 center">
+<h1>Statistical analysis</h1>
+
+</section>
+<section id="fold-change-in-microarray-experiments" class="slide level2">
+<h2>Fold Change in Microarray Experiments</h2>
+<p>Fold change quantifies the <strong>magnitude of gene expression difference</strong> between two conditions (e.g., treated vs.&nbsp;control).</p>
+<p>Fold Change = Mean Expression (treated) / Mean Expression (control)</p>
+<p>To symmetrize up- and down-regulation: log2(Fold Change) → +1 = 2× up, -1 = 2× down</p>
+<blockquote>
+<p>Fold change alone does not indicate statistical significance — it measures effect size only.</p>
+</blockquote>
+</section>
+<section id="p-value-and-multiple-testing" class="slide level2">
+<h2>p-Value and Multiple Testing</h2>
+<p><strong>p-value:</strong> probability of observing a difference as extreme as the measured one, assuming no true difference (null hypothesis). In microarrays, we test thousands of genes simultaneously → <strong>many false positives by chance.</strong></p>
+<p>Need multiple testing correction to control for these errors:</p>
+<ul>
+<li class="fragment">Bonferroni correction: very strict, divides α by number of tests.</li>
+<li class="fragment"><strong>Benjamini–Hochberg (FDR):</strong> controls expected false discovery rate; widely used in microarray and RNA-seq.</li>
+</ul>
+</section>
+<section id="limma-in-microarray-analysis" class="slide level2">
+<h2>limma in Microarray Analysis</h2>
+<p>limma (Linear Models for Microarray Data) is one of the most widely used R packages for analyzing microarray (and RNA-seq) data. It provides a robust framework for identifying <strong>differentially expressed genes</strong> using linear models and empirical Bayes statistics.</p>
+</section>
+<section id="volcano-plot" class="slide level2">
+<h2>Volcano plot</h2>
+
+<img data-src="https://www.ncbi.nlm.nih.gov/geo/img/geo2r_volcano.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="venn-diagram" class="slide level2">
+<h2>Venn Diagram</h2>
+
+<img data-src="https://www.ncbi.nlm.nih.gov/geo/img/geo2r_vennDiagram.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="heatmap" class="slide level2">
+<h2>Heatmap</h2>
+
+<img data-src="https://s3-eu-west-1.amazonaws.com/ppreviews-plos-725668748/2406979/preview.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="nanostring-2003" class="slide level2">
+<h2>Nanostring (2003)</h2>
+
+<img data-src="https://media.bizj.us/view/img/12485846/nanostring-technologies-biotech-in-seattle-april-2023*900xx3553-1997-23-0.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="nanostring" class="slide level2">
+<h2>Nanostring</h2>
+<p><strong>Microarray:</strong> Relies on hybridization where labeled sample nucleic acids bind to complementary sequences on a solid surface. The amount of binding is then measured by fluorescence, which is proportional to the amount of target RNA. This method requires amplification steps.</p>
+<p><strong>NanoString:</strong> Uses a direct-counting, amplification-free method. It attaches fluorescent “reporter” probes to the target nucleic acids, which are then counted directly, providing a more precise count of the original molecules.</p>
+<blockquote>
+<p>Both of them use same differential gene expression methods.</p>
+</blockquote>
+</section>
+<section id="nanostring-is-bankruptcy" class="slide level2">
+<h2>Nanostring is bankruptcy</h2>
+
+<img data-src="https://www.wilsongunn.com/wp-content/uploads/2024/01/Nanostring-vs-10x-Genomics-LinkedIn.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><p><strong>Patent infringement lawsuit:</strong> In November 2023, a federal jury ordered NanoString to pay competitor 10x Genomics $31 million in damages for infringing on its patents with NanoString’s GeoMx Digital Spatial Profiler. This loss created significant financial strain for the company.</p>
+</section>
+<section id="case-1-fu-et-al-2015" class="slide level2">
+<h2>Case 1 (Fu et al, 2015)</h2>
+
+<img data-src="https://storage.googleapis.com/plos-corpus-prod/10.1371/journal.pone.0063249/1/pone.0063249.g002.PNG_L?X-Goog-Algorithm=GOOG4-RSA-SHA256&amp;X-Goog-Credential=wombat-sa%40plos-prod.iam.gserviceaccount.com%2F20251028%2Fauto%2Fstorage%2Fgoog4_request&amp;X-Goog-Date=20251028T032848Z&amp;X-Goog-Expires=86400&amp;X-Goog-SignedHeaders=host&amp;X-Goog-Signature=0cab56ed512f3f93f070ce13a9f1096a469fc1d02c32b813fcd85ba673466d0d233ca4ce2c80de54b3f4c33e896be4994813a80a24b05b6a9c5761867f3573a9d4f1614be0ab3837a625ea341b68054e64f2347264f824734b97683177dcb09097594dbfa3742162b53d0b8c8d89001302b4b796db9aa3f05c16a064d18c1e6bf3ed376d59110dc7ce9f4160d9d81bbbfed07f447aac56a55fe859c454977682e95adaa99c92b7ddf26163d33f2700d9df299e45161af36198c8186829302299a2f4ba0a4464925b7156e9d65470e8e0914763ac216d5c6d916a720e126b20ec95b6fced1ceeac164c8f43eb39cbfade6938602e67724f682fe76f12a8b91fc4" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><p><small> <strong>Figure 2.</strong> Heatmap representing the expressions of 59 genes with significant different expression in CUP compared with other cancer types or normal lymph nodes. Genes are indicated on the right. The colored bar above the heatmap represents the different cancer types, and the legend key is on the left. On the heatmap, red represents up-regulated genes and green represents down-regulated genes, relative to the expression levels in normal lymph nodes, with the scale shown in the upper left corner. </small></p>
 </section>
 <section id="break" class="slide level2">
 <h2>Break</h2>
 <p>☕ 15 min coffee break<br>
 Stretch, chat, and prepare for the next section:<br>
 <strong>Application &amp; Case Study</strong></p>
+</section>
+<section class="slide level2">
+
 </section></section>
 <section>
-<section id="case-study" class="title-slide slide level1 center">
-<h1>Case study</h1>
+<section id="application-case-study" class="title-slide slide level1 center">
+<h1>Application &amp; Case study</h1>
 
 </section>
 <section id="today-assay" class="slide level2">
 <h2>Today assay</h2>
 <ul>
-<li class="fragment">Research for ~1h for a qPCR experiment in any research study.</li>
-<li class="fragment">Make a two slides presentation (5 minutes or less) in our colective google presentations: https://docs.google.com/presentation/d/17SfSTSQEb1F1wk3JXD0Q4h-1Hb5dTlzAntmwiRo1Ows/edit?usp=sharing</li>
+<li class="fragment">Research for ~1h for a microarray experiment in any research study. Make a two slides presentation (5 minutes or less) in our colective google presentations: <small>https://docs.google.com/presentation/d/1Qfn0hTdl1h5wGEnfWhgRKN1QMA4bxfer6mUtIFANL68/edit?usp=sharing</small></li>
+<li class="fragment">Answer these questions:
+<ul>
+<li class="fragment">Probe platform used? One or two color method?</li>
+<li class="fragment">Normalization method used? Highest and lowest fold-change.</li>
+<li class="fragment">How many differentially expressed genes were found?</li>
+</ul></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -945,51 +664,8 @@ Stretch, chat, and prepare for the next section:<br>
 <li class="fragment">RT-PCR;</li>
 <li class="fragment">qPCR / RT-qPCR;</li>
 <li class="fragment">None of them are sutiable;</li>
-<li class="fragment"><strong>ANSWER) Northern-blot;</strong></li>
 </ol>
-</section>
-<section id="pcr-three-steps-occur-in-this-order" class="slide level2">
-<h2>PCR three steps occur in this order:</h2>
-<ol type="A">
-<li class="fragment">Annealing, extension and denaturation;</li>
-<li class="fragment">Denaturation, annealing, and extension;</li>
-<li class="fragment">Denaturation, extension and annealing;</li>
-<li class="fragment">None of them are sutiable;</li>
-<li class="fragment"><strong>ANSWER) Denaturation, annealing, and extension;</strong></li>
-</ol>
-</section>
-<section id="in-qpcr-housekeeping-genes-are-valuable-as" class="slide level2">
-<h2>In qPCR, housekeeping genes are valuable as:</h2>
-<ol type="A">
-<li class="fragment">a negative control marker;</li>
-<li class="fragment">reference genes in experiments like qPCR;</li>
-<li class="fragment">always expressed equally in all cell types;</li>
-<li class="fragment">never expressed in control groups;</li>
-<li class="fragment"><strong>ANSWER) reference genes in experiments like qPCR</strong></li>
-</ol>
-</section>
-<section id="transcriptomics-is-the-study-of" class="slide level2">
-<h2>Transcriptomics is the study of:</h2>
-<ol type="A">
-<li class="fragment">the complete set of small RNAs produced by a genome;</li>
-<li class="fragment">set of non-coding RNA transcripts produced by a genome;</li>
-<li class="fragment">set of coding RNA transcripts produced by a genome;</li>
-<li class="fragment">the complete set of RNA transcripts produced by a genome;</li>
-<li class="fragment"><strong>ANSWER) the complete set of RNA transcripts produced by a genome</strong></li>
-</ol>
-</section>
-<section id="which-of-those-are-not-expected-in-transcriptomics-area" class="slide level2">
-<h2>Which of those are not expected in transcriptomics area:</h2>
-<ol type="A">
-<li class="fragment">Catalogue transcripts;</li>
-<li class="fragment">Finding intergenic regions of genome;</li>
-<li class="fragment">Determine gene structure;</li>
-<li class="fragment">Quantify expression changes;</li>
-<li class="fragment"><strong>ANSWER) Finding intergenic regions of genome</strong></li>
-</ol>
-</section>
-<section class="slide level2">
-
+<p><strong>A) Northern-blot;</strong></p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
@@ -1000,19 +676,19 @@ Stretch, chat, and prepare for the next section:<br>
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="day_1_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="day_2_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="day_1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="day_1_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="day_1_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="day_1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="day_1_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="day_2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="day_2_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="day_2_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="day_2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="day_2_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="day_1_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="day_1_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="day_1_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="day_1_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="day_2_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="day_2_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="day_2_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="day_2_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

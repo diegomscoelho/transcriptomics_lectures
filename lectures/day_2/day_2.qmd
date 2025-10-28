@@ -1,0 +1,304 @@
+---
+title: "Day 2 - Microarray method"
+subtitle: "First Genome-Wide View"
+format: 
+  revealjs:
+    theme: [default, custom.scss]
+    transition: fade
+    slide-number: true
+    incremental: true
+---
+
+## Course Topics
+
+1. **Day 1:** Brief Introduction + Quantitative RNA methods;
+2. **Day 2: Microarray: First Genome-Wide View;**
+
+---
+
+## Yesterday summary
+
+```{r summary}
+
+library(knitr)
+
+methods_data <- data.frame(
+  Method = c("Northern Blot", "RT-PCR", "qPCR"),
+  Year = c(1977, 1985, 1996),
+  `RNA Required` = c("μg", "ng", "pg-ng"),
+  `Time` = c("2-3 days", "8 hours", "2 hours"),
+  `Throughput` = c("1 gene", "5-10 genes", "96-384 genes"),
+  check.names = FALSE
+)
+
+kable(methods_data)
+```
+
+
+---
+
+## Today's Goals
+
+By the end of today, you should be able to:
+
+1. **Principles of microarray technology**  
+   - Probes, hybridization, fluorescence detection.
+   - One-color vs two-color systems
+2. **Normalization methods (RMA, quantile)**  
+3. **Statistical analysis concepts**
+   - Fold-change, p-value, multiple testing.  
+   - Differential expression and others.
+
+---
+
+# Principles of microarray
+
+---
+
+## Principles of Microarray Technology
+
+Microarrays allow **simultaneous measurement of thousands of RNA transcripts** by hybridizing labeled cDNA to probes fixed on a solid surface.
+
+- **Probes:** Short DNA sequences (~25–70 bp) immobilized on a glass slide or chip.
+- **Hybridization:** Labeled sample cDNA binds to complementary probes.
+- **Detection:** Fluorescent intensity at each spot corresponds to transcript abundance.
+
+> 🧠 Conceptually: Each spot = one gene; brightness = expression level.
+
+---
+
+## Defining probes (again)
+
+
+![](https://www.researchgate.net/publication/280580151/figure/fig1/AS:651158213361673@1532259624752/DNA-microarray-with-capture-probes-The-microarray-is-made-using-photolithography-or.png){fig-align="center" width="100%"}
+
+
+> In the context of microarray, a probe is a short, single-stranded DNA sequence immobilized on the array surface that specifically hybridizes to a complementary target RNA (or cDNA) sequence, enabling the detection and quantification of gene expression levels.
+
+---
+
+## Microarray Workflow Overview
+
+1. **RNA extraction** from control and test samples  
+2. **Reverse transcription** to cDNA with fluorescent labeling  
+3. **Hybridization** of cDNA to complementary probes on chip  
+4. **Washing** to remove unbound cDNA  
+5. **Scanning** to measure fluorescence  
+6. **Normalization and analysis** of intensity data
+
+---
+
+## Microarray Workflow Overview
+
+![](https://microbenotes.com/wp-content/uploads/2018/09/Steps-Involved-in-cDNA-based-Microarray.jpeg){fig-align="center" width="100%"}
+
+---
+
+## Microarray Workflow Overview
+
+<div style="display: flex; justify-content: center; align-items: center; height: 80vh;">
+  <iframe 
+    src="https://www.youtube.com/embed/0ATUjAxNf6U"
+    title="Microarray technology"
+    style="width: 80vw; height: 45vw; max-width: 960px; max-height: 540px; border: none;"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+---
+
+## One or two color arrays?
+
+A major design consideration in a microarray experiment is whether to measure the expression levels from each sample on separate microarrays (one-colour array) or to compare relative expression levels between a pair of samples on a single microarray (two-colour array). The overall performance of one-colour and two-colour arrays is similar.
+
+> EBI functional genomics courses
+
+---
+
+## One or two color arrays?
+
+![](https://www.ebi.ac.uk/training/online/courses/functional-genomics-ii-common-technologies-and-data-analysis-methods/wp-content/uploads/sites/70/2020/05/Figure11_blue-1024x738.png){fig-align="center" width="100%"}
+
+---
+
+## One-Color vs Two-Color Systems
+
+### 🟩 One-Color (Single Channel)
+- Each sample hybridized to its own array.
+- Common in **Affymetrix** and **Illumina** platforms.
+- Signal intensity represents **absolute expression** for one sample.
+
+### 🟥🟩 Two-Color (Dual Channel)
+- Two samples hybridized on the **same array**:
+  - Example: Control = Cy3 (green), Treated = Cy5 (red)
+- Measures **relative expression** directly by color ratio.
+
+---
+
+## Comparison and trends
+
+| Platform       | Probes             | Typical Design   | Color System | Notes                        |
+| -------------- | --------------------- | ---------------- | ------------ | ---------------------------- |
+| **Affymetrix** | Short (25-mer)        | Photolithography | One-color    | Historical gold standard     |
+| **Agilent**    | Long (~60-mer)        | Inkjet synthesis | Two-color    | Popular for academic studies |
+| **Illumina**   | Bead-based     | BeadArray        | One-color    | High reproducibility         |
+
+---
+
+# Normalization
+
+---
+
+## Normalization method
+
+Normalization is the process of **adjusting microarray data to remove systematic technical variation** that is not related to biological differences. Most known and used method is **RMA Normalization** (Robust Multi-array Average).
+
+---
+
+## RMA Normalization
+
+**Purpose:**
+To correct background noise and make expression values comparable across microarrays.
+
+**Main Steps:**
+
+- Background correction – adjusts for optical noise and nonspecific signal.
+- Quantile normalization – forces all arrays to have the same overall distribution. You can possibly use only this as a normalization method.
+- Summarization – combines probe-level data into one expression value per gene using a median polish model.
+
+---
+
+## RMA Normalization
+
+**Advantages:**
+
+- Reduces array-to-array variability.
+- Improves reproducibility in downstream differential expression analysis.
+- Implemented in tools like **affy** and **oligo** (R/Bioconductor).
+
+---
+
+## Quantile Normalization
+
+
+![](https://www.researchgate.net/profile/Saroj-Mohapatra/publication/47371361/figure/fig1/AS:306044065599492@1449977999233/Quantile-normalization-imposes-the-same-empirical-distribution-of-intensities-on-each.png
+){fig-align="center" width="100%"}
+
+---
+
+# Statistical analysis
+
+---
+
+## Fold Change in Microarray Experiments
+
+Fold change quantifies the **magnitude of gene expression difference** between two conditions (e.g., treated vs. control).
+
+Fold Change = Mean Expression (treated) / Mean Expression (control)
+
+To symmetrize up- and down-regulation:
+log2(Fold Change) → +1 = 2× up, -1 = 2× down
+
+> Fold change alone does not indicate statistical significance — it measures effect size only.
+
+## p-Value and Multiple Testing
+
+**p-value:** probability of observing a difference as extreme as the measured one, assuming no true difference (null hypothesis). In microarrays, we test thousands of genes simultaneously → **many false positives by chance.**
+
+Need multiple testing correction to control for these errors:
+
+- Bonferroni correction: very strict, divides α by number of tests.
+- **Benjamini–Hochberg (FDR):** controls expected false discovery rate; widely used in microarray and RNA-seq.
+
+## limma in Microarray Analysis
+
+limma (Linear Models for Microarray Data) is one of the most widely used R packages for analyzing microarray (and RNA-seq) data. It provides a robust framework for identifying **differentially expressed genes** using linear models and empirical Bayes statistics.
+
+## Volcano plot
+
+
+![](https://www.ncbi.nlm.nih.gov/geo/img/geo2r_volcano.png){fig-align="center" width="100%"}
+
+
+## Venn Diagram
+
+
+![](https://www.ncbi.nlm.nih.gov/geo/img/geo2r_vennDiagram.png){fig-align="center" width="100%"}
+
+---
+
+## Heatmap
+
+![](https://s3-eu-west-1.amazonaws.com/ppreviews-plos-725668748/2406979/preview.jpg){fig-align="center" width="100%"}
+
+## Nanostring (2003)
+
+![](https://media.bizj.us/view/img/12485846/nanostring-technologies-biotech-in-seattle-april-2023*900xx3553-1997-23-0.jpg){fig-align="center" width="100%"}
+
+---
+
+## Nanostring
+
+**Microarray:** Relies on hybridization where labeled sample nucleic acids bind to complementary sequences on a solid surface. The amount of binding is then measured by fluorescence, which is proportional to the amount of target RNA. This method requires amplification steps.
+
+**NanoString:** Uses a direct-counting, amplification-free method. It attaches fluorescent "reporter" probes to the target nucleic acids, which are then counted directly, providing a more precise count of the original molecules.
+
+> Both of them use same differential gene expression methods.
+
+---
+
+## Nanostring is bankruptcy
+
+![](https://www.wilsongunn.com/wp-content/uploads/2024/01/Nanostring-vs-10x-Genomics-LinkedIn.png){fig-align="center" width="100%"}
+
+**Patent infringement lawsuit:** In November 2023, a federal jury ordered NanoString to pay competitor 10x Genomics $31 million in damages for infringing on its patents with NanoString's GeoMx Digital Spatial Profiler. This loss created significant financial strain for the company.
+
+
+---
+
+## Case 1 (Fu et al, 2015)
+
+![](https://storage.googleapis.com/plos-corpus-prod/10.1371/journal.pone.0063249/1/pone.0063249.g002.PNG_L?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=wombat-sa%40plos-prod.iam.gserviceaccount.com%2F20251028%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251028T032848Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=0cab56ed512f3f93f070ce13a9f1096a469fc1d02c32b813fcd85ba673466d0d233ca4ce2c80de54b3f4c33e896be4994813a80a24b05b6a9c5761867f3573a9d4f1614be0ab3837a625ea341b68054e64f2347264f824734b97683177dcb09097594dbfa3742162b53d0b8c8d89001302b4b796db9aa3f05c16a064d18c1e6bf3ed376d59110dc7ce9f4160d9d81bbbfed07f447aac56a55fe859c454977682e95adaa99c92b7ddf26163d33f2700d9df299e45161af36198c8186829302299a2f4ba0a4464925b7156e9d65470e8e0914763ac216d5c6d916a720e126b20ec95b6fced1ceeac164c8f43eb39cbfade6938602e67724f682fe76f12a8b91fc4){width="100%" fig-align="center"}
+
+<small>
+**Figure 2.** Heatmap representing the expressions of 59 genes with significant different expression in CUP compared with other cancer types or normal lymph nodes. Genes are indicated on the right. The colored bar above the heatmap represents the different cancer types, and the legend key is on the left. On the heatmap, red represents up-regulated genes and green represents down-regulated genes, relative to the expression levels in normal lymph nodes, with the scale shown in the upper left corner.
+</small>
+
+---
+
+## Break
+
+☕ 15 min coffee break  
+Stretch, chat, and prepare for the next section:  
+**Application & Case Study**
+
+---
+
+# Application & Case study
+
+## Today assay
+
+- Research for ~1h for a microarray experiment in any research study. Make a two slides presentation (5 minutes or less) in our colective google presentations:
+<small>https://docs.google.com/presentation/d/1Qfn0hTdl1h5wGEnfWhgRKN1QMA4bxfer6mUtIFANL68/edit?usp=sharing</small>
+- Answer these questions:
+  - Probe platform used? One or two color method?
+  - Normalization method used? Highest and lowest fold-change.
+  - How many differentially expressed genes were found?
+
+
+---
+
+# Questions
+
+---
+
+## ...
+
+A) ...
+B) ...
+C) ...
+D) ...
+
+**A) ...**
+

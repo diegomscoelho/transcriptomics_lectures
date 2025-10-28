@@ -539,3 +539,59 @@ Stretch, chat, and prepare for the next section:
 
 - Research for ~1h for a qPCR experiment in any research study.
 - Make a two slides presentation (5 minutes or less) in our colective google presentations: https://docs.google.com/presentation/d/17SfSTSQEb1F1wk3JXD0Q4h-1Hb5dTlzAntmwiRo1Ows/edit?usp=sharing
+
+---
+
+# Questions
+
+---
+
+## Which method is more reliable for describing transcript size?
+
+A) Northern-blot;
+B) RT-PCR;
+C) qPCR / RT-qPCR;
+D) None of them are sutiable;
+E) **ANSWER) Northern-blot;**
+
+---
+
+## PCR three steps occur in this order:
+
+A) Annealing, extension and denaturation;
+B) Denaturation, annealing, and extension;
+C) Denaturation, extension and annealing;
+D) None of them are sutiable;
+E) **ANSWER) Denaturation, annealing, and extension;**
+
+---
+
+## In qPCR, housekeeping genes are valuable as:
+
+A) a negative control marker;
+B) reference genes in experiments like qPCR;
+C) always expressed equally in all cell types; 
+D) never expressed in control groups;
+E) **ANSWER) reference genes in experiments like qPCR**
+
+---
+
+## Transcriptomics is the study of:
+
+A) the complete set of small RNAs produced by a genome;
+B) set of non-coding RNA transcripts produced by a genome;
+C) set of coding RNA transcripts produced by a genome;
+D) the complete set of RNA transcripts produced by a genome;
+E) **ANSWER) the complete set of RNA transcripts produced by a genome**
+
+---
+
+## Which of those are not expected in transcriptomics area:
+
+A) Catalogue transcripts;
+B) Finding intergenic regions of genome;
+C) Determine gene structure;
+D) Quantify expression changes;
+E) **ANSWER) Finding intergenic regions of genome**
+
+---

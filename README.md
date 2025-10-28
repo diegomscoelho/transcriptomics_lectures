@@ -14,7 +14,7 @@
 - Interpret key qPCR metrics and limitations.  
 - Understand course structure, expectations, and discussion format.
 
-### **Morning (Concepts)**
+### **Afternoon #1 (Concepts)**
 1. **Course orientation and overview**  
    - What transcriptomics studies, what this course covers, how daily activities work.  
 2. **The concept of a transcriptome**  
@@ -27,7 +27,7 @@
 **Discussion prompt:**  
 > What can qPCR tell us that earlier methods could not — and what can’t it tell us about the full transcriptome?
 
-### **Afternoon (Case Scenario)**  
+### **Afternoon #2 (Case Scenario)**  
 **Case:** *Measuring stress-response genes by qPCR.*  
 - Analyze a short paper excerpt or summary.  
 - Define hypothesis, normalization approach, and replication needs.  
@@ -42,12 +42,11 @@
 ### **Learning Goals**
 - Understand how hybridization-based methods enabled transcriptome-scale quantification.  
 - Interpret microarray data structure, normalization, and biases.  
-- Evaluate experimental design and reproducibility.  
-- Recognize how microarray logic connects to modern sequencing approaches.
+- Evaluate experimental design and reproducibility.
 
 ### **Morning (Concepts)**
 1. **Principles of microarray technology**  
-   - Probes, hybridization, fluorescence detection.  
+   - Probes, hybridization, fluorescence detection.
 2. **One-color vs two-color systems**  
 3. **Normalization methods (RMA, quantile)**  
 4. **Statistical analysis concepts**  
