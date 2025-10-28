@@ -313,7 +313,7 @@ E) **B) Detect RNA expression across thousands of genes simultaneously**
 
 ---
 
-## Which step occurs **first** in a typical microarray workflow?  
+## Which step occurs **first** in a typical RNA microarray workflow?  
    
 A) Hybridization  
 B) Scanning  
@@ -326,7 +326,87 @@ E) **C) RNA extraction**
 ## In the context of microarray, a probe is a short:
 
 A) Single-stranded DNA sequence immobilized on the array surface;
-B) ...
-C) ...
-D) ...
-E) **A) RNA extraction**
+B) Single-stranded DNA sequence with a fluorescence molecule used to attach on cDNA;
+C) Single-stranded DNA sequence immobilized on the array surface;
+D) None of the above;
+E) **A) Single-stranded DNA sequence immobilized on the array surface;**
+
+---
+
+## If we compare an Agilent (60-mer) vs. Affymetrix (25-mere) probes, we say: 
+
+A) Agilent has a lower sensitivity and lower specificity;
+B) Agilent has a lower sensitivity and higher specificity;
+C) Agilent has a higher sensitivity and higher specificity;
+D) Agilent has a higher sensitivity and lower specificity;
+E) **B) Agilent has a lower sensitivity and higher specificity;**
+
+---
+
+## Which of those is NOT true about color system?
+
+A) In one color systems, each sample hybridized to its own array.
+B) In two color systems, two samples hybridized on the same array.
+C) In two color systems, you will end up with a relative expression value.
+D) In one color systems, you cannot find relative expression.
+E) **D) In one color systems, you cannot find relative expression.**
+
+---
+
+## Which normalization method is commonly used to correct systematic variation across microarrays?
+
+A) Z-score normalization
+B) Log normalization
+C) Robust Multi-array Average (RMA)
+D) Mean centering
+E) **C) Robust Multi-array Average (RMA)**
+
+---
+
+## What is the purpose of quantile normalization?
+
+A) To remove background fluorescence
+B) To force all arrays to have the same distribution of intensities
+C) To summarize probe-level data into gene-level data
+D) To increase fold-change between samples
+E) **B) To force all arrays to have the same distribution of intensities**
+
+---
+
+## Why do we apply multiple testing correction in microarray data analysis?
+
+A) To reduce background noise
+B) To correct for comparing thousands of genes simultaneously
+C) To normalize probe fluorescence
+D) To adjust fold-change direction
+E) **B) To correct for comparing thousands of genes simultaneously**
+
+---
+
+## What is a common limitation of microarray technology compared to RNA-seq?
+
+A) Microarrays can measure only small RNAs
+B) Microarrays have unlimited dynamic range
+C) Microarrays require no prior knowledge of genome sequence
+D) Microarrays cannot detect novel transcripts or isoforms
+E) **D) Microarrays cannot detect novel transcripts or isoforms**
+
+---
+
+## Why is background correction important in microarray preprocessing?
+
+A) To increase the number of expressed genes
+B) To remove fluorescence from non-specific binding or optical noise
+C) To amplify weakly expressed genes
+D) To normalize intensities betwe**en dyes
+E) **B) To remove fluorescence from non-specific binding or optical noise**
+
+---
+
+## Which statement best describes the relationship between microarray technology and non-coding RNAs?
+
+A) Microarrays cannot detect non-coding RNAs because they lack poly-A tails.
+B) Specialized microarrays can be designed with probes targeting specific microRNAs or lncRNAs.
+C) Non-coding RNAs are too short to be hybridized on any microarray platform.
+D) Only RNA-seq can be used to study non-coding RNA expression.
+E) **B) Specialized microarrays can be designed with probes targeting specific microRNAs or lncRNAs.**
