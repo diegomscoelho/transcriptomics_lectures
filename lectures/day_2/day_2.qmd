@@ -63,8 +63,6 @@ Microarrays allow **simultaneous measurement of thousands of RNA transcripts** b
 - **Hybridization:** Labeled sample cDNA binds to complementary probes.
 - **Detection:** Fluorescent intensity at each spot corresponds to transcript abundance.
 
-> 🧠 Conceptually: Each spot = one gene; brightness = expression level.
-
 ---
 
 ## Defining probes (again)
