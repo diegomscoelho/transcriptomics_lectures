@@ -125,7 +125,7 @@ A major design consideration in a microarray experiment is whether to measure th
 ### 🟩 One-Color (Single Channel)
 - Each sample hybridized to its own array.
 - Common in **Affymetrix** and **Illumina** platforms.
-- Signal intensity represents **absolute expression** for one sample.
+- Signal intensity represents **abs. expression** for one sample.
 
 ### 🟥🟩 Two-Color (Dual Channel)
 - Two samples hybridized on the **same array**:
