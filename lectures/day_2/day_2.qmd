@@ -71,7 +71,7 @@ Microarrays allow **simultaneous measurement of thousands of RNA transcripts** b
 ![](https://www.researchgate.net/publication/280580151/figure/fig1/AS:651158213361673@1532259624752/DNA-microarray-with-capture-probes-The-microarray-is-made-using-photolithography-or.png){fig-align="center" width="100%"}
 
 
-> In the context of microarray, a probe is a short, single-stranded DNA sequence immobilized on the array surface that specifically hybridizes to a complementary target RNA (or cDNA) sequence, enabling the detection and quantification of gene expression levels.
+In the context of microarray, a probe is a short, **single-stranded DNA sequence immobilized on the array surface that specifically hybridizes to a complementary target RNA (or cDNA) sequence**, enabling the detection and quantification of gene expression levels.
 
 ---
 
@@ -94,11 +94,11 @@ Microarrays allow **simultaneous measurement of thousands of RNA transcripts** b
 
 ## Microarray Workflow Overview
 
-<div style="display: flex; justify-content: center; align-items: center; height: 80vh;">
+<div style="display: flex; justify-content: center; align-items: center; height: 60vh;">
   <iframe 
     src="https://www.youtube.com/embed/0ATUjAxNf6U"
     title="Microarray technology"
-    style="width: 80vw; height: 45vw; max-width: 960px; max-height: 540px; border: none;"
+    style="width: 80vw; height: 45vw; max-width: 800px; max-height: 400px; border: none;"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen>
   </iframe>
@@ -110,7 +110,7 @@ Microarrays allow **simultaneous measurement of thousands of RNA transcripts** b
 
 A major design consideration in a microarray experiment is whether to measure the expression levels from each sample on separate microarrays (one-colour array) or to compare relative expression levels between a pair of samples on a single microarray (two-colour array). The overall performance of one-colour and two-colour arrays is similar.
 
-> EBI functional genomics courses
+> Source: EBI functional genomics courses
 
 ---
 
@@ -141,6 +141,18 @@ A major design consideration in a microarray experiment is whether to measure th
 | **Affymetrix** | Short (25-mer)        | Photolithography | One-color    | Historical gold standard     |
 | **Agilent**    | Long (~60-mer)        | Inkjet synthesis | Two-color    | Popular for academic studies |
 | **Illumina**   | Bead-based     | BeadArray        | One-color    | High reproducibility         |
+
+---
+
+## Affymetrix
+
+![](https://upload.wikimedia.org/wikipedia/commons/2/22/Affymetrix-microarray.jpg?20060410111635){fig-align="center" width="100%"}
+
+---
+
+## Agilent
+
+![](https://pbs.twimg.com/media/EX1DYQMXQAI6Vva.jpg){fig-align="center" width="100%"}
 
 ---
 
@@ -291,12 +303,30 @@ Stretch, chat, and prepare for the next section:
 
 ---
 
-## ...
+## What is the main purpose of a microarray experiment?
 
-A) ...
+A) Measure DNA methylation  
+B) Detect RNA expression across thousands of genes simultaneously
+C) Sequence entire genomes  
+D) Identify protein–protein interactions  
+E) **B) Detect RNA expression across thousands of genes simultaneously**
+
+---
+
+## Which step occurs **first** in a typical microarray workflow?  
+   
+A) Hybridization  
+B) Scanning  
+C) RNA extraction  
+D) Normalization 
+E) **C) RNA extraction**
+
+---
+
+## In the context of microarray, a probe is a short:
+
+A) Single-stranded DNA sequence immobilized on the array surface;
 B) ...
 C) ...
 D) ...
-
-**A) ...**
-
+E) **A) RNA extraction**
