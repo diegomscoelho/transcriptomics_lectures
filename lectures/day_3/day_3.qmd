@@ -62,7 +62,7 @@ By the end of today, you should be able to:
   2. Library preparation
   3. Sequencing
   4. Read mapping & quantification  
-  5. Downstream analysis (DE, splicing, pathways)
+  5. Downstream analysis
 
 ![](https://upload.wikimedia.org/wikipedia/commons/6/6a/RNA_seq_workflow.svg){width=100% fig-align="center"}
 
@@ -414,15 +414,17 @@ Stretch, chat, and prepare for the next section:
 
 # Application & Case study
 
-## Today assay
+## Today assay {.smaller}
 
-- Research for ~1h for a short-read RNAseq experiment in any research study. Make a two slides presentation (5 minutes or less) in our colective google presentations:
+- Research for ~1h for a short-read RNAseq experiment in any research study related to Bulk RNAseq (avoid scRNAseq). Make a two slides presentation (5 minutes or less) in our colective google presentations:
+
+https://docs.google.com/presentation/d/1VA6orV_DraHiUIpzQW79o-O25CwcCFspmx00JYgDPD4/edit?usp=sharing
+
 - Answer these questions:
   - Which sequencing platform was used?
   - Single-end or paired-end? Read length?
   - Which genome reference was used? If suitable, which annotation reference?
   - Does it follow ENCODE best principles?
-
 
 ---
 
@@ -430,10 +432,119 @@ Stretch, chat, and prepare for the next section:
 
 ---
 
-## ...
+## Q1: Primary Goal of RNA-seq
 
-A) ...
-B) ...
-C) ...
-D) ...
-E) **B) Detect RNA expression across thousands of genes simultaneously**
+What is the primary goal of the RNA-seq workflow?
+
+A) To physically sequence the entire length of the human genome.
+B) To quantify and compare transcript abundance across different samples. 
+C) To align short reads to a Protein-Protein Interaction (PPI) network.
+D) To reconstruct a cDNA library from a FASTA file.
+
+## Q2: Intermediate Molecule
+
+RNA is first converted into which molecule before being fragmented and adapted for sequencing library preparation?
+
+A) rRNA
+B) tRNA
+C) cDNA 
+D) mRNA
+
+## Q3: Function of Adapters
+
+What is one of the main purposes of the short, known DNA sequences (adapters) ligated to the ends of cDNA fragments?
+
+A) To increase the length of the transcript for better alignment.
+B) To serve as priming sites for sequencing and bind to the flow cell surface. 
+C) To perform the final size selection and fragmentation of the library.
+D) To enable the use of an unstranded sequencing protocol.
+
+## Q4: Enabling Multiplexing
+
+Which element, typically a short identifier sequence embedded within the adapters, enables **multiplexing**—allowing several different samples to be sequenced in one run?
+
+A) Priming Sites
+B) Flow Cells
+C) Indexes / Barcodes 
+D) cDNA Fragments
+
+## Q5: ENCODE Replicates Standard
+
+Based on the suggested best practices for Differential Gene Expression (DGE) analysis and ENCODE4 guidelines, what is the recommended minimum number of **biological replicates** to use per condition?
+
+A) Two or more replicates.
+B) Three or four replicates.
+C) Six biological replicates. 
+D) Thirty replicates.
+
+## Q6: ENCODE Sequencing Depth
+
+What is the ENCODE4 standard for the minimum number of **aligned reads** required per replicate in a bulk RNA-seq DGE experiment?
+
+A) 10–30 million total reads.
+B) 20 million aligned reads.
+C) 30 million aligned reads. 
+D) 50 million aligned reads.
+
+## Q7: Advantage of Paired-End
+
+What is a primary advantage of Paired-end sequencing over Single-end sequencing, especially for transcript discovery and analysis of complex gene structures?
+
+A) It is less expensive and produces smaller data volumes.
+B) It allows for faster data generation on the sequencing platform.
+C) It improves mapping confidence across splice junctions and allows for better detection of alternative splicing. 
+D) It preserves the information about which DNA strand was transcribed.
+
+## Q8: Stranded RNA-seq Benefit
+
+What crucial information does **Stranded** (or directional) RNA-seq preserve that is lost in unstranded protocols?
+
+A) The optimal read length for alignment.
+B) The integrity of the cDNA fragments.
+C) The information about which DNA strand was transcribed (sense vs. antisense). 
+D) The base quality scores for each read.
+
+## Q9: Raw Data File Format
+
+What is the raw data file format produced directly by sequencing machines that contains both the nucleotide sequence and the ASCII-encoded Phred quality scores?
+
+A) BAM
+B) FASTA
+C) FASTQ 
+D) GTF
+
+## Q10: Gene Annotation File Type
+
+Which file format provides gene and transcript coordinates on the genome (e.g., location of exons, transcripts, and genes) and is crucial for splice-aware alignment?
+
+A) FASTQ
+B) FASTA
+C) SAM
+D) GTF
+
+## Q11: Post-Alignment Compressed Format
+
+After alignment, the reads are stored in SAM format. What is the **BAM** format?
+
+A) The text-based file describing where each read maps to the reference genome.
+B) The binary, compressed version of the SAM format, used for faster storage and processing. 
+C) The raw quality scores file for post-processing.
+D) The final normalized count matrix.
+
+## Q12: Count Matrix Structure
+
+In the quantification step, the output is a count matrix. What do the rows and columns of this matrix typically represent?
+
+A) Rows = samples, Columns = raw reads.
+B) Rows = genes, Columns = samples. 
+C) Rows = transcripts, Columns = alignment flags.
+D) Rows = FASTQ files, Columns = quality scores.
+
+## Q13: Functional Enrichment Goal
+
+What is the main goal of **Functional Enrichment Analysis** (e.g., using GO, KEGG, or GSEA)?
+
+A) To correlate gene expression profiles across samples to build a network.
+B) To estimate the proportions of different cell types in a bulk sample.
+C) To identify hub proteins and interaction clusters within the DEG-encoded proteins.
+D) To discover biological processes or pathways that are enriched among a set of genes (or DEGs). 
