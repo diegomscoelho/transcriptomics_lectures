@@ -293,7 +293,7 @@ Stretch, chat, and prepare for the next section:
 <small>https://docs.google.com/presentation/d/1Qfn0hTdl1h5wGEnfWhgRKN1QMA4bxfer6mUtIFANL68/edit?usp=sharing</small>
 - Answer these questions:
   - Probe platform used? One or two color method?
-  - Normalization method used? Highest and lowest fold-change.
+  - Normalization method used? Which statistical method?
   - How many differentially expressed genes were found?
 
 

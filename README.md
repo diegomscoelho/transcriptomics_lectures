@@ -15,27 +15,15 @@
 - Understand course structure, expectations, and discussion format.
 
 ### **Afternoon #1 (Concepts)**
-1. **Course orientation and overview**  
-   - What transcriptomics studies, what this course covers, how daily activities work.  
-2. **The concept of a transcriptome**  
-   - From gene to transcript; mRNA, ncRNA, and isoforms.  
-3. **Historical progression**  
-   - Northern blot → RT-PCR → qPCR: precision, scalability, and limitations.  
-4. **Key concepts in qPCR**  
-   - Ct value, efficiency, normalization (ΔΔCt), reference genes, bias sources.
-
-**Discussion prompt:**  
-> What can qPCR tell us that earlier methods could not — and what can’t it tell us about the full transcriptome?
+...
 
 ### **Afternoon #2 (Case Scenario)**  
-**Case:** *Measuring stress-response genes by qPCR.*  
-- Analyze a short paper excerpt or summary.  
-- Define hypothesis, normalization approach, and replication needs.  
-- Identify what information is missing to make conclusions genome-wide.  
-- **Present:** how to expand this question using a transcriptomic approach.
-
-**Wrap-up reflection:**  
-> What limitations of qPCR might motivate the invention of microarrays?
+- Research for ~1h for a qPCR experiment in any research study.
+- Make a two slides presentation (5 minutes or less) in our colective google presentations.
+- Answer these questions:
+  - What was the biological question?
+  - How many genes were quantified?
+  - What reference genes were used for normalization?
 
 ## **Day 2 — Microarrays: The First Genome-Wide View**
 
@@ -47,27 +35,19 @@
 ### **Morning (Concepts)**
 1. **Principles of microarray technology**  
    - Probes, hybridization, fluorescence detection.
-2. **One-color vs two-color systems**  
-3. **Normalization methods (RMA, quantile)**  
-4. **Statistical analysis concepts**  
+   - One-color vs two-color systems
+2. **Normalization methods (RMA, quantile)**  
+3. **Statistical analysis concepts**
    - Fold-change, p-value, multiple testing.  
-5. **Common sources of error**  
-   - Cross-hybridization, batch effects.  
-6. **From microarray to modern analysis**  
-   - Differential expression and enrichment logic.
-
-**Discussion prompt:**  
-> What new possibilities did microarrays open compared to qPCR, and what problems still remained?
+   - Differential expression and others.
 
 ### **Afternoon (Case Scenario)**  
-**Case:** *Microarray-based comparison of tumor vs normal tissue.*  
-- Review a classic cancer transcriptomics paper (e.g., breast cancer subtype study).  
-- Identify experimental design, normalization, and validation strategy.  
-- Discuss issues like probe specificity, sample size, and biological interpretation.  
-- **Present:** How we would redesign this study today, keeping its original biological question.
+- Research for ~1h for a microarray experiment in any research study. Make a two slides presentation (5 minutes or less) in our colective google presentations:
+- Answer these questions:
+  - Probe platform used? One or two color method?
+  - Normalization method used? Which statistical method?
+  - How many differentially expressed genes were found?
 
-**Wrap-up reflection:**  
-> Microarrays gave us breadth but not depth — what technology might solve that next?
 
 ## **Day 3 — RNA-seq: The Short-Read Revolution**
 
@@ -88,9 +68,6 @@
    - Replication, depth, batch control.  
 5. **Biological interpretation**  
    - PCA, volcano plots, enrichment (conceptual level).
-
-**Discussion prompt:**  
-> Why is sequencing-based quantification considered “unbiased”? Is it truly unbiased?
 
 ### **Afternoon (Case Scenario)**  
 **Case:** *Differential expression in a disease model using RNA-seq.*  

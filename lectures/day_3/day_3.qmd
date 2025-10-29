@@ -1,0 +1,439 @@
+---
+title: "Day 3 - NGS RNAseq"
+subtitle: "Short-Read Revolution"
+format: 
+  revealjs:
+    theme: [default, custom.scss]
+    transition: fade
+    slide-number: true
+    incremental: true
+---
+
+## Course Topics
+
+1. **Day 1:** Brief Introduction + Quantitative RNA methods;
+2. **Day 2:** Microarray: First Genome-Wide View;
+3. **Day 3: RNAseq: Short-Read Revolution;**
+---
+
+## Yesterday summary
+
+```{r summary}
+library(knitr)
+
+platform_data <- data.frame(
+Platform = c("Affymetrix", "Agilent", "Illumina"),
+Throughput = c("30,000–50,000 probes/array", "40,000–60,000 probes/array", ">48,000 probes/array"),
+Average_Price = c("~$250–$400 per array", "~$200–$300 per array", "~$150–$250 per array")
+)
+
+kable(platform_data, align = "lcc")
+
+```
+
+Microarrays allow **simultaneous measurement of thousands of RNA transcripts** by hybridizing labeled cDNA to probes fixed on a solid surface.
+
+---
+
+## Today's Goals {.smaller}
+
+By the end of today, you should be able to:
+
+1. **RNA-seq short-read workflow overview**  
+   - Library prep, sequencing, and read mapping principles.
+2. **Experiment design in short-read RNAseq**
+   - Replication, depth, batch control.
+2. **Core analysis logic**  
+   - Quality assessment → alignment → quantification
+   - FASTQ, BAM/SAM, count matrices.
+3. **Downstream analysis**
+   - PCA, volcano plots, enrichment (conceptual level).
+
+
+---
+
+# RNA-seq workflow overview
+
+## RNA-seq Workflow
+
+- **Goal:** Quantify and compare transcript abundance across samples.  
+- **Main steps:**  
+  1. RNA isolation**
+  2. Library preparation
+  3. Sequencing
+  4. Read mapping & quantification  
+  5. Downstream analysis (DE, splicing, pathways)
+
+![](https://upload.wikimedia.org/wikipedia/commons/6/6a/RNA_seq_workflow.svg){width=100% fig-align="center"}
+
+---
+
+## Library Preparation {.smaller}
+
+- RNA is first converted into **cDNA fragments**, typically 200–500 bp long.
+- **Adapters** are ligated to both ends — these are short, known sequences required for:
+  - Binding to the flow cell surface.
+  - Serving as priming sites for sequencing.
+- Optional steps include:
+  - **Fragmentation** (enzymatic or mechanical).
+  - **Size selection** for desired insert length.
+  - **PCR amplification** to enrich for adapter-ligated fragments.
+
+> 🎯 Goal: produce a high-quality cDNA library compatible with the sequencing platform.
+
+## Common Elements
+
+- **Adapters** — Short, known DNA sequences ligated to fragment ends.  
+  Allow fragments to bind to the flow cell surface or nanoball array.
+
+- **Indexes / Barcodes** — Short identifier sequences embedded within adapters.  
+  Enable **multiplexing**, allowing several samples to be sequenced in one run.
+
+- **Priming Sites** — Regions within adapters where sequencing primers bind during each read.
+
+## Common Elements
+
+![](https://seqwell.com/wp-content/uploads/2023/03/barcode-1200x-1.png){width=100% fig-align="center"}
+
+## cDNA fragment (Illumina)
+
+![](https://knowledge.illumina.com/~gitbook/image?url=https%3A%2F%2F761066130-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FGM9W2DuBTgEXv1ClCm8H%252Fuploads%252Fgit-blob-d9099352b312adb3c3f15560cfab0744d9564ffa%252Fimage1.png%3Falt%3Dmedia%26token%3D2d294364-12d7-427e-9981-9948442f6b63&width=768&dpr=4&quality=100&sign=314070f7&sv=2){width=100% fig-align="center"}
+
+## Sequencing (Illumina)
+
+<div style="display: flex; justify-content: center; align-items: center; height: 70vh;">
+  <iframe 
+    src="https://www.youtube.com/embed/EDVKxSNdSic"
+    title="Illumina sequencing"
+    style="width: 80vw; height: 45vw; max-width: 960px; max-height: 540px; border: none;"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+---
+
+## Platforms {.smaller}
+
+| Platform | Detection Signal | Base ID Method | Key Feature |
+|-----------|------------------|----------------|--------------|
+| Illumina | Fluorescence | 4-color reversible terminators | High accuracy, dominant in RNA-seq |
+| BGI DNBSEQ | Fluorescence | cPAS chemistry | Cost-efficient, similar accuracy |
+| Ion Torrent | pH (electrical) | Semiconductor detection | No fluorescence, faster but noisier |
+
+
+---
+
+# Experiment design in short-read RNAseq
+
+---
+
+## ENCODE standards
+
+The ENCODE Project (Encyclopedia of DNA Elements) is a public research project that aims to build a comprehensive parts list of functional elements in the human genome. The ENCODE Data Coordination Center (DCC)'s primary task is to curate, uniformly process and validate the data generated and submitted by ENCODE Consortium members in preparation for release to the scientific community. 
+
+> https://www.encodeproject.org/data-standards/
+
+## Relevant questions
+
+1) How many biological replicates?
+2) How much sequencing depth?
+3) Read length
+4) Single vs. Paired end
+5) Stranded vs. unstranded
+
+## How many biological replicates?
+
+A 48-replicate yeast study showed that many of the tools available for DGE analysis detected only 20–40% of differentially expressed genes when only 3 replicates were included in the analysis. The study suggested that a minimum of **six biological replicates should be used**, which is substantially more than the three or four replicates generally reported in the RNA-​seq literature.
+
+> ENCODE4: Experiments should have two or more replicates.
+
+## How much sequencing depth?
+
+For bulk RNA DGE experiments in eukaryotic genomes, it is generally accepted that read depths of around 10–30 million reads per sample are required.
+
+> ENCODE4: Each replicate should have **30 million aligned reads**, although older projects aimed for 20 million reads. Best practices for ENCODE2 RNA-seq experiments have been outlined .
+
+## Read length
+
+Read length determines how much of each transcript is sequenced and directly affects alignment accuracy and transcriptome coverage. Short reads (e.g., 50 bp) are sufficient for gene-level expression quantification, but longer reads (100–150 bp) improve mapping across splice junctions and enable better detection of alternative splicing and novel isoforms.
+
+
+## Single vs. Paired end
+
+Single-end sequencing reads one end of each cDNA fragment, while paired-end sequencing reads both ends, producing two reads per fragment.
+
+Paired-end data provide improved mapping confidence, especially for repetitive regions, fusion gene detection, and alternative splicing analysis. However, paired-end runs are more expensive and produce larger data volumes.
+
+Paired-end (e.g., 2 × 75 bp or 2 × 100 bp) is preferred for transcript discovery and isoform-level analysis.
+
+## Single vs. Paired end
+
+![](https://statomics.github.io/SGA/images_sequencing/singleEndVsPairedEnd.png){width=100% fig-align="center"}
+
+
+## Stranded vs. unstranded
+
+Stranded (or directional) RNA-seq preserves the information about which DNA strand was transcribed, enabling accurate detection of antisense transcription and overlapping genes. Unstranded protocols lose this information, which can cause ambiguity in complex loci.
+
+> ENCODE4: Recommends strand-specific libraries for all RNA-seq experiments to accurately quantify sense and antisense transcripts.
+
+## Stranded vs. unstranded
+
+![](https://biocorecrg.github.io/PHINDaccess_RNAseq_2020/images/rnaseq_strandedness.png){width=100% fig-align="center"}
+
+---
+
+## Strandedness vs. DGE paradigm
+
+![](https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12864-015-1876-7/MediaObjects/12864_2015_1876_Fig4_HTML.gif?as=webp){width=100% fig-align="center"}
+
+---
+
+# Core analysis logic
+
+## Raw Data (FASTQ) {.smaller}
+
+Generally, we are speaking of **FASTQ** files. FASTQ is the raw data format produced by sequencing machines.
+Each read has four lines:
+
+1) Identifier (e.g., @SEQ_ID)
+2) Nucleotide sequence
+3) Separator (+)
+3) Quality scores (ASCII-encoded Phred scores)
+
+FASTQ stores both the read sequences and their base quality, essential for downstream filtering and alignment.
+
+> "Official" raw data is BCL files that stands for **binary base calling** file format.
+
+---
+
+## FASTQ format
+
+![](https://biocorecrg.github.io/PhD_course_genomics_format_2021/images/fastq_format.png){width=100% fig-align="center"}
+
+---
+
+## Alignment essential
+
+To align RNA-seq reads, two main inputs are required besides the FASTQ files:
+
+1) Reference Genome (FASTA)
+2) Gene Annotation (GTF)
+
+> These define the genomic coordinates and transcript structures needed for accurate alignment and quantification.
+
+---
+
+## Reference Genome (FASTA)
+
+A FASTA file contains the nucleotide sequences of all chromosomes in the organism.
+
+Used by aligners (e.g., STAR, HISAT2) to determine where each read originates.
+
+Example:
+
+\>chr1
+
+ATGCGTAACTGATCGT...
+
+> Must match the annotation (same genome build, e.g., GRCh38, mm10).
+
+---
+
+## Gene Annotation File (GTF)
+
+A GTF (Gene Transfer Format) file provides gene and transcript coordinates on the genome.
+
+It tells the aligner or quantifier where exons, transcripts, and genes are located.
+
+Example entry:
+
+chr1  HAVANA  exon  11869  12227  .  +  .  gene_id "ENSG00000223972"; transcript_id "ENST00000456328";
+
+
+> Crucial for splice-aware alignment and feature counting (e.g., HTSeq, featureCounts).
+
+---
+
+## Post-alignment (BAM/SAM)
+
+After alignment, reads are stored in SAM (Sequence Alignment/Map) format — a text-based file describing where each read maps to the reference genome. The BAM format is its binary, compressed version, faster for storage and processing.
+
+> Contain mapping position, strand, mapping quality, and alignment flags for each read.
+
+---
+
+## Post-alignment (BAM/SAM)
+
+![](https://samformat.pages.dev/images/sam_format_annotated_example.5108a0cd.jpg){width=100% fig-align="center"}
+
+---
+
+## Quantification (count matrix)
+
+The count matrix is a table where rows = genes and columns = samples, showing how many reads align to each gene. Generated after alignment and annotation (e.g., via featureCounts or HTSeq-count).
+
+---
+
+## Quantification (count matrix)
+
+![](https://www.researchgate.net/profile/Zeynab-Maghsoudi/publication/380400909/figure/fig4/AS:11431281244042660@1715797649467/An-example-of-the-content-of-a-count-matrix-file-In-this-example-the-count-matrix-file.ppm){width=100% fig-align="center"}
+
+## Other post-alignment analysis {.smaller}
+
+**1) Transcript Assembly** – Reconstructs full-length transcripts from aligned reads to discover novel isoforms or unannotated genes.
+Tools: StringTie, Cufflinks.
+
+**2) RNA Editing Detection** – Identifies base modifications such as A→I or C→U editing events by comparing RNA reads to the reference genome.
+Use case: Brain and immune tissues often show strong editing signatures.
+
+**3) Variant Calling from RNA-seq** – Detects SNPs and small indels directly from transcribed regions, revealing expressed genetic variants.
+Tools: GATK, bcftools, FreeBayes.
+
+**4) Gene Fusion Detection** – Finds chimeric transcripts produced by genomic rearrangements, common in cancer and developmental disorders.
+Tools: STAR-Fusion, FusionCatcher.
+
+---
+
+## Nextflow and nf-core {.smaller}
+
+Nextflow is a workflow management system designed for reproducible, scalable, and portable bioinformatics pipelines. It allows researchers to write pipelines in a simple scripting language that can be executed seamlessly on local machines, HPC clusters, or cloud environments.
+
+nf-core is a community-driven platform that provides a collection of high-quality, peer-reviewed Nextflow pipelines following best practices. Each nf-core pipeline is version-controlled, well-documented, and designed for easy adaptation to new datasets.
+
+> Together, Nextflow and nf-core form a powerful ecosystem for standardized, reproducible omics analysis.
+
+## RNAseq workflow
+
+![](https://raw.githubusercontent.com/nf-core/rnaseq/3.21.0//docs/images/nf-core-rnaseq_metro_map_grey_animated.svg){width=100% fig-align="center"}
+
+---
+
+# Downstream analysis
+
+## Differential Gene Expression (DGE)
+
+**Goal:** Identify genes with significant expression changes between conditions (e.g., control vs. treated).
+
+**Input:** Normalized count matrix (e.g., from DESeq2 or edgeR).
+
+**Output:** Fold-change and adjusted p-values.
+
+**Tools:** DESeq2, edgeR, limma-voom.
+
+**Common visualization:** Volcano plot, heatmap, PCA.
+
+## Functional Enrichment Analysis
+
+Goal: Discover biological processes or pathways enriched among a set of genes (or DEGs).
+
+Approaches:
+
+1) Over-representation analysis (ORA) – tests DEGs vs. background.
+
+2) Gene Set Enrichment Analysis (GSEA) – uses ranked gene lists.
+
+Databases: GO, KEGG, Reactome, MSigDB.
+
+Tools: clusterProfiler, fgsea, enrichR.
+
+## Protein–Protein Interaction (PPI) Networks
+
+**Goal:** Explore how DEG-encoded proteins interact.
+
+**Data sources:** STRING, BioGRID, IntAct.
+
+**Analysis:** Identify hub proteins, clusters, or signaling modules.
+
+**Tools:** STRINGdb (R), Cytoscape, NetworkAnalyst.
+
+## Co-expression Network Analysis
+
+**Goal:** Identify modules of co-expressed genes sharing biological functions.
+
+**Approach:** Correlate gene expression profiles across samples.
+
+**Tools:** WGCNA, CEMiTool, MEGENA.
+
+**Output:** Network modules → correlated with phenotypes or traits.
+
+## Cell-type Deconvolution
+
+**Goal:** Estimate cell-type proportions from bulk RNA-seq data.
+
+**Why:** Bulk samples are mixtures of multiple cell types.
+
+**Approach:** Compare to reference scRNA-seq or purified profiles.
+
+**Tools:** CIBERSORTx, MuSiC, BisqueRNA, xCell.
+
+## Other Downstream Analyses
+
+**1) Alternative Splicing Analysis** — detect isoform changes (rMATS, SUPPA2).
+
+**2) Gene Regulatory Network Inference** — identify TF–target relationships (SCENIC, GENIE3).
+
+**3) Integration with Multi-Omics** — combine transcriptomics with proteomics or epigenomics (MOFA, mixOmics).
+
+**4) Visualization Dashboards** — streamline exploration (Shiny, Streamlit, iDEP).
+
+---
+
+## Fictional design request #1
+
+A biologist have an experiment that it needs to compare KO cells vs. normal cells.
+He is not aware of which mechanism is involved but have a hint related to splicing machinery might be involved. He wants to know:
+
+  - How many samples should be sequenced?
+  - How much depth should be sequenced per sample? Read length?
+  - Which library should be used?
+
+---
+
+## Fictional design request #2
+
+A immunologist have an experiment that it needs to compare 4 conditions in 3 different time points.
+She doesn´t want to bother with anything new or out of the shelf, just find basic inflamatory mechanism.
+She wants to know:
+
+  - How many samples should be sequenced?
+  - How much depth should be sequenced per sample? Read length?
+  - Which library should be used?
+
+---
+
+
+## Break
+
+☕ 15 min coffee break  
+Stretch, chat, and prepare for the next section:  
+**Application & Case Study**
+
+---
+
+# Application & Case study
+
+## Today assay
+
+- Research for ~1h for a short-read RNAseq experiment in any research study. Make a two slides presentation (5 minutes or less) in our colective google presentations:
+- Answer these questions:
+  - Which sequencing platform was used?
+  - Single-end or paired-end? Read length?
+  - Which genome reference was used? If suitable, which annotation reference?
+  - Does it follow ENCODE best principles?
+
+
+---
+
+# Questions
+
+---
+
+## ...
+
+A) ...
+B) ...
+C) ...
+D) ...
+E) **B) Detect RNA expression across thousands of genes simultaneously**
