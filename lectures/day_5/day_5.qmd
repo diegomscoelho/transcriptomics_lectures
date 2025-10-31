@@ -349,7 +349,10 @@ https://docs.google.com/presentation/d/1MhgL_QKHwte8pHiG8PVzbgxYH2bi9NqiqfgqYBNf
 
 - Answer these questions:
   - How many cell it has in total? 
+  - Average sequencing depth per sample and per cell?
   - Based on https://satijalab.org/howmanycells/, how many cells / samples were expected?
+  - Which cell types were annotated? Describe some markers from 1 cell type?
+  - Which non-linear dimension was used?
 
 ---
 
