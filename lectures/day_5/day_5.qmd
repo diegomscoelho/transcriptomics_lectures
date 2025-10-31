@@ -345,14 +345,11 @@ Stretch, chat, and prepare for the next section:
 
 - Research for ~1h for a RNAseq experiment in any research study related to single-cell RNAseq (avoid bulk-only RNAseq). Make a two slides presentation (5 minutes or less) in our colective google presentations:
 
-https://docs.google.com/presentation/d/1VA6orV_DraHiUIpzQW79o-O25CwcCFspmx00JYgDPD4/edit?usp=sharing
+https://docs.google.com/presentation/d/1MhgL_QKHwte8pHiG8PVzbgxYH2bi9NqiqfgqYBNfC4g/edit?usp=sharing
 
 - Answer these questions:
   - How many cell it has in total? 
-  - Based on https://satijalab.org/howmanycells/
-  - Single-end or paired-end? Read length?
-  - Which genome reference was used? If suitable, which annotation reference?
-  - Does it follow ENCODE best principles?
+  - Based on https://satijalab.org/howmanycells/, how many cells / samples were expected?
 
 ---
 
