@@ -1,0 +1,14 @@
+/*-- scss:defaults --*/
+// (optional custom default variables go here, e.g. colors or fonts)
+
+/*-- scss:rules --*/
+.border {
+  border: 1px solid #dee2e6;
+}
+
+.border-thick {
+  border-width: 3px;
+}
+
+/*-- scss:mixins --*/
+// (you can leave this empty if not using mixins)

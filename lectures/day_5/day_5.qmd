@@ -1,0 +1,370 @@
+---
+title: "Day 5 - Single-cell and Spatial Transcriptomics"
+subtitle: "Sequencing one cell at a time"
+format: 
+  revealjs:
+    theme: [default, custom.scss]
+    transition: fade
+    slide-number: true
+    incremental: true
+---
+
+## Course Topics
+
+1. **Day 1:** Brief Introduction + Quantitative RNA methods;
+2. **Day 2:** Microarray: First Genome-Wide View;
+3. **Day 3:** RNAseq: Short-Read Revolution;
+4. **Day 4:** Long-Read Transcriptomics; (To be scheduled)
+5. **Day 5: Single-cell and Spatial Transcriptomics;**
+---
+
+## "Yesterday" summary {.smaller}
+
+| Platform       | Detection        | Base ID Method               | Key Feature                              | Est. Cost (30M PE reads, 2×150 bp) |
+|----------------|------------------|------------------------------|------------------------------------------|------------------------------------:|
+| **Illumina**   | Fluorescence     | 4-color reversible terminators | High accuracy, dominant in RNA-seq        | ~\$90–\$120 per sample *(core facility)* |
+| **BGI DNBSEQ** | Fluorescence     | cPAS chemistry               | Cost-efficient, comparable accuracy        | ~\$25–\$60 per sample *(via service quote)* |
+| **Ion Torrent**| pH (electrical)  | Semiconductor detection       | No fluorescence, faster but noisier       | ~\$400–\$2,000 per sample *(depends on run type)* |
+
+> 💡 *Estimates based on reagent + core facility pricing (9 Gb ≈ 30 M paired-end reads). Actual prices depend on run configuration, multiplexing, and region.*
+
+---
+
+## Today's Goals {.smaller}
+
+By the end of today, you should be able to:
+
+1. **Why move to single-cell resolution?**
+2. **Overview of scRNA-seq methods**
+   - Dissociation
+   - Isolation;
+   - Cell lysis / RT;
+   - Amplification;
+   - Library preparation;
+3. **Key computational concepts**  
+   - Quality control, Normalization, dimensionality reduction, clustering, etc
+4. **Spatial transcriptomics technologies**  
+   - Visium / Slide-Seq
+
+
+---
+
+# Why move to single-cell resolution?
+
+---
+
+## Bulk vs. RNAseq
+
+![](https://www.lexogen.com/wp-content/uploads/2024/01/Difference-between-scRNA-Seq-and-bulk-RNA-Seq.png){width=100% fig-align="center"}
+
+---
+
+## Evolution of scRNAseq
+
+![](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fnprot.2017.149/MediaObjects/41596_2018_Article_BFnprot2017149_Fig1_HTML.jpg){width=100% fig-align="center"}
+
+---
+
+## Evolution of scRNAseq
+
+![](https://encyclopedia.pub/media/item_content/202206/62bc11298d210biosensors-12-00450-g002.png){width=100% fig-align="center"}
+
+---
+
+## Droplet-based
+
+![](https://i0.wp.com/1.bp.blogspot.com/-jwTaEJV7B4k/VV8XinPfqzI/AAAAAAAABpw/IqdCfYCsNmE/s1600/Dropseq1.jpg){width=100% fig-align="center"}
+
+## Droplet-based
+
+<br>
+<br>
+
+![](https://mccarrolllab.org/wp-content/uploads/2015/05/Substack-4455-4504.gif){width=100% fig-align="center"}
+
+---
+
+## SPLiT-seq
+
+![](https://cdn.ncbi.nlm.nih.gov/pmc/blobs/a6ae/7643870/0fe6c5496ae9/nihms-1581077-f0001.jpg){width=100% fig-align="center"}
+
+## 10x Genomics
+
+<br>
+
+![](https://i2.wp.com/2.bp.blogspot.com/-lkcFwl7hu2U/V5oT2lyrdbI/AAAAAAAACSI/p72Uv26K9BkKhvkEVdHb2FcD3Ts7KFqqgCLcB/s1600/Screen%2BShot%2B2016-07-28%2Bat%2B15.16.35.png?ssl=1){width=100% fig-align="center"}
+
+
+---
+
+## Questions could be answered {.smaller}
+
+1) Which genetic markers are expressed among different cell types?
+2) What is the composition of cells in my sample? New or rare subpopulations of cells?
+3) What activation or differentiation states exist within a population?
+4) Does the cell composition change between conditions (healthy vs. diseased)?
+5) How do cells change over time or in response to stimuli?
+6) How does the cellular microenvironment influence a cell’s function?
+
+---
+
+# Overview of scRNA-seq methods
+
+## Basic workflow (10x Genomics)
+
+1) Dissociation;
+2) Isolation;**
+3) Cell lysis / RT;**
+4) Amplification;
+5) Library preparation;
+6) Sequencing;
+7) Data analysis;
+
+> **Key steps of scRNAseq protocol.
+
+## Basic workflow (10x Genomics)
+
+<br>
+
+![](https://encyclopedia.pub/media/item_content/202206/62bc1112b6b12biosensors-12-00450-g001.png){width=100% fig-align="center"}
+
+## Dissociation
+
+![](https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-1-0716-3995-5_19/MediaObjects/535446_2_En_19_Fig5_HTML.png){width=100% fig-align="center"}
+
+> Viability >85% is required for good-quality libraries. 
+
+## Isolation
+
+<br>
+
+![](https://cdn.10xgenomics.com/image/upload/v1709930681/blog/GEM-X%20Launch%20blog/Figure_1.png){width=100% fig-align="center"}
+
+## Cell lysis / RT
+
+<br>
+<br>
+
+![](https://cdn.10xgenomics.com/image/upload/v1710226015/support/3_Gel_Bead.png){width=100% fig-align="center"}
+
+## Amplification
+
+![](https://hbctraining.github.io/scRNA-seq/img/umis.png){width=100% fig-align="center"}
+
+## Library preparation
+
+<br>
+<br>
+
+![](https://cdn.10xgenomics.com/image/upload/v1755542613/knowledge-base/4404050374925.png){width=100% fig-align="center"}
+
+## Bias of distribution
+
+![](https://www.researchgate.net/publication/350206220/figure/fig4/AS:1003487005523969@1616261354129/Fig-S1-A-3-biased-distribution-of-10x-Chromium-scRNA-seq-on-long-noncoding-RNA.jpg){width=100% fig-align="center"}
+
+## scRNAseq Workflow
+
+<div style="display: flex; justify-content: center; align-items: center; height: 70vh;">
+  <iframe 
+    src="https://www.youtube.com/embed/watch?v=eVEDw1YykME"
+    title="Illumina sequencing"
+    style="width: 80vw; height: 45vw; max-width: 960px; max-height: 540px; border: none;"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+## How much depth and reads per cell?
+
+The required depth for RNA-seq depends on the study's goal, but a common range is **30-60 million reads per sample** for a broad view of gene expression. If you are managing to sequence 10k cells, you will probably end up with **2000-3500 read pairs per cell**.
+
+> Not a precise equation, depends on which experiment you are designing.
+
+## How many cells should be sequenced?
+
+https://satijalab.org/howmanycells/
+
+---
+
+# Key computational concepts
+
+## Pre-processing
+
+Usage of **Cell Ranger** — the standard preprocessing software provided by **10x Genomics** — is the first computational step in analyzing raw single-cell RNA-seq data.  
+It transforms **Illumina BCL or FASTQ files** into a **gene-cell expression matrix**, which serves as the foundation for downstream analyses.
+
+---
+
+## Main steps
+
+1) Quality control
+2) Normalization
+3) Feature selection
+4) Dimension reduction
+5) Cell annotation
+6) Downstream analysis
+
+## Main steps
+
+![](https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41576-023-00586-w/MediaObjects/41576_2023_586_Fig2_HTML.png){width=100% fig-align="center"}
+
+## Quality control
+
+![](https://www.sc-best-practices.org/_images/quality_control.jpeg){width=100% fig-align="center"}
+
+## Normalization
+
+The preprocessing step of “normalization” aims to adjust the raw counts in the dataset for variable sampling effects by **scaling the observable variance to a specified range**. Several normalization techniques are used in practice varying in complexity. They are mostly designed in such a way that subsequent analysis tasks and their underlying statistical methods are applicable.
+
+## Feature selection
+
+<br>
+<br>
+
+![](https://www.sc-best-practices.org/_images/feature_selection.jpeg){width=100% fig-align="center"}
+
+## Dimension reduction
+
+<br>
+<br>
+
+![](https://www.sc-best-practices.org/_images/dimensionality_reduction.jpeg){width=100% fig-align="center"}
+
+## Cell annotation
+
+![](https://satijalab.org/seurat/articles/pbmc3k_tutorial_files/figure-html/umapplot-1.png){fig-align="center"}
+
+## Cell annotation
+
+![](https://satijalab.org/seurat/articles/pbmc3k_tutorial_files/figure-html/unnamed-chunk-3-1.png){fig-align="center"}
+
+## Cell annotation
+
+![](https://satijalab.org/seurat/articles/pbmc3k_tutorial_files/figure-html/labelplot-1.png){fig-align="center"}
+
+## Downstream analysis
+
+![](https://www.sc-best-practices.org/_images/differential_gene_expression.jpg){fig-align="center"}
+
+## Downstream analysis
+
+![](https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41467-020-14766-3/MediaObjects/41467_2020_14766_Fig6_HTML.png){fig-align="center"}
+
+## scRNAseq book
+
+![](https://www.sc-best-practices.org/_images/title.png){width=100% fig-align="center"}
+
+> https://www.sc-best-practices.org/preamble.html
+
+## Fictional design request #1
+
+You are working on a project that is trying to describe function of a KO in a tissue. You have 4 vs. 4 samples for each condition. You are working with a tissue with 7 known cell types. Your rarest cell type is expected to be 2% and you want to achieve at least 200 cells in all cell types.
+
+1) How much depth should be sequenced per sample? Read pairs per cell?
+2) How many cells per samples you are aiming?
+
+---
+
+# Spatial transcriptomics technologies
+
+## What is it about? {.smaller}
+
+Spatial transcriptomics allows researchers to **quantify gene expression while preserving spatial context** within a tissue section.
+
+- Each measurement is linked to a precise **location on the tissue**.  
+- Combines **histological imaging** with **RNA sequencing** to map cellular functions in space.  
+- Enables discovery of:
+  - Tissue organization and cell interactions  
+  - Spatial gradients in gene expression  
+  - Regional responses to disease or injury  
+
+🧠 *Think of it as scRNA-seq + coordinates → a map of molecular activity within tissues.*
+
+
+## Overview {.smaller}
+
+![](https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-021-03634-9/MediaObjects/41586_2021_3634_Fig1_HTML.png?as=webp){width=100% fig-align="center"}
+
+## Visium (10x Genomics) {.smaller}
+
+**10x Genomics Visium** is one of the most widely used spatial transcriptomics platforms.
+
+- Uses glass slides covered with **55 μm barcoded capture spots**, each containing millions of oligo-dT probes.  
+- Captures mRNA directly from tissue placed on the slide, maintaining **spatial information** via spot-specific barcodes.  
+- Generates paired data:
+  - **Histological image** (H&E stain)  
+  - **Spatial gene expression matrix**
+
+🔬 Resolution: ~1–10 cells per spot  
+📊 Integration: Compatible with **Seurat**, **Scanpy**, and **Space Ranger** pipelines.
+
+## Visium (10x Genomics) {.smaller}
+
+<br>
+<br>
+
+![](https://cdn.10xgenomics.com/image/upload/v1645041033/analysis-guides/Spatial-AnnotatedSCdata-Illus.png){width=100% fig-align="center"}
+
+## Slide-seq {.smaller}
+
+**Slide-seq** achieves higher spatial resolution using **DNA-barcoded beads**.
+
+- A surface is coated with thousands of **10 µm beads**, each with a unique positional barcode.  
+- Tissue is transferred onto the bead array; mRNA diffuses and binds to nearby beads.  
+- After sequencing, spatial positions are reconstructed using the known bead coordinates.  
+- Enables near **single-cell resolution** across entire tissue sections.
+
+## Slide-seq {.smaller}
+
+<br>
+
+![](https://www.science.org/cms/10.1126/science.aaw1219/asset/c2b8070a-1bfb-4c2c-9c75-aedb8143dbfd/assets/graphic/363_1463_f1.jpeg){width=100% fig-align="center"}
+
+
+## Platforms {.smaller}
+
+| Platform / Method | Resolution | Capture Type | Key Features |
+|--------------------|-------------|---------------|---------------|
+| **10x Genomics Visium** | 55 µm spot | PolyA capture | Combines imaging with transcriptomics; widely adopted |
+| **Slide-seq / Slide-seqV2** | 10 µm bead | PolyA capture | High spatial resolution using barcoded bead arrays |
+| **MERFISH / seqFISH** | Single-molecule | Imaging-based | Detects hundreds–thousands of genes *in situ* |
+
+---
+
+## Break
+
+☕ 15 min coffee break  
+Stretch, chat, and prepare for the next section:  
+**Application & Case Study**
+
+---
+
+# Application & Case study
+
+## Today assay {.smaller}
+
+- Research for ~1h for a RNAseq experiment in any research study related to single-cell RNAseq (avoid bulk-only RNAseq). Make a two slides presentation (5 minutes or less) in our colective google presentations:
+
+https://docs.google.com/presentation/d/1VA6orV_DraHiUIpzQW79o-O25CwcCFspmx00JYgDPD4/edit?usp=sharing
+
+- Answer these questions:
+  - How many cell it has in total? 
+  - Based on https://satijalab.org/howmanycells/
+  - Single-end or paired-end? Read length?
+  - Which genome reference was used? If suitable, which annotation reference?
+  - Does it follow ENCODE best principles?
+
+---
+
+# Questions
+
+---
+
+## Q1: Primary Goal of RNA-seq
+
+What is the primary goal of the RNA-seq workflow?
+
+A) To physically sequence the entire length of the human genome.
+B) To quantify and compare transcript abundance across different samples. 
+C) To align short reads to a Protein-Protein Interaction (PPI) network.
+D) To reconstruct a cDNA library from a FASTA file.

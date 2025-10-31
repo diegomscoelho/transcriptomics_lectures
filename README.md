@@ -126,9 +126,7 @@
 3. **Key computational concepts**  
    - Normalization, dimensionality reduction, clustering.  
 4. **Spatial transcriptomics technologies**  
-   - Visium, MERFISH, Slide-seq.  
-5. **Integrative analyses**  
-   - Linking spatial, single-cell, and bulk data.
+   - Visium, MERFISH, Slide-seq.
 
 **Discussion prompt:**  
 > How does single-cell data change the kinds of biological questions we can ask?
