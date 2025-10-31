@@ -345,7 +345,7 @@ Stretch, chat, and prepare for the next section:
 
 - Research for ~1h for a RNAseq experiment in any research study related to single-cell RNAseq (avoid bulk-only RNAseq). Make a two slides presentation (5 minutes or less) in our colective google presentations:
 
-https://docs.google.com/presentation/d/1MhgL_QKHwte8pHiG8PVzbgxYH2bi9NqiqfgqYBNfC4g/edit?usp=sharing
+https://docs.google.com/presentation/d/1MhgL_QKHwte8pHiG8PVzbgxYH2bi9NqiqfgqYBNfC4g
 
 - Answer these questions:
   - How many cell it has in total? 
